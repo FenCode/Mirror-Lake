@@ -4,7 +4,7 @@ function Player(game, key, frame, scale, rotation) {
 	Phaser.Sprite.call(this, game, 470, 500, 'sprites', 'player', 33);
 
 	
-	
+
 }
 // explicitly define prefab's prototype (Phaser.Sprite) and constructor (Player)
 Player.prototype = Object.create(Phaser.Sprite.prototype);
@@ -13,7 +13,7 @@ Player.prototype.constructor = Player;
 
 Player.prototype.update = function() {
 	//movement controls
-	
+
 	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
 		this.body.velocity.x = 50;
 		console.log('right');
@@ -24,6 +24,6 @@ Player.prototype.update = function() {
 	}else {
 		this.body.stop();
 	}
-	
-	
+
+
 }
