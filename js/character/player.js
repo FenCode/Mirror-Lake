@@ -14,11 +14,11 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function() {
 	//movement controls
 
-	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.D)){
 		this.body.velocity.x = 50;
 		console.log('right');
 	}
-	else if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
+	else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
 		this.body.velocity.x = -50;
 		console.log('left');
 	}else {
