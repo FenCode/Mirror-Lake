@@ -16,7 +16,8 @@ Load.prototype = {
 	{
 		// setting load path
 		game.load.path = './assets/placeholders/';
-		game.load.image('star', 'star.png');
+		game.load.image('lakestar', 'lakeStar.png');
+		game.load.image('skystar', 'skyStar.png');
 	},
 	create: function()
 	{

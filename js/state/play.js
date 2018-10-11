@@ -14,10 +14,16 @@ play.prototype = {
 		platforms.enableBody = true; 
 
 		// adding star prefab to game
-		star = new Star(game, game.width / 2, game.height / 2,);
-		game.add.existing(star);
+		lakestar1 = new lakeStar(game, game.width / 2, game.height / 2 + 100);
+		game.add.existing(lakestar1);
 		// setting anchor to center
-		star.anchor.setTo(0.5);	
+		lakestar1.anchor.setTo(0.5);	
+
+		// adding star prefab to game
+		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar1);
+		game.add.existing(skystar);
+		// setting anchor to center
+		skystar.anchor.setTo(0.5);	
 	},
 	
 	update: function() {
