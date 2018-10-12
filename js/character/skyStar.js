@@ -8,6 +8,7 @@ function skyStar(game, xpos, ypos, lakestarID) {
 
 	// setting properties
 	this.scale.setTo(0.3);
+	this.enableBody = true;
 
 
 	// for scope reasons
