@@ -19,6 +19,12 @@ Load.prototype = {
 		game.load.image('lakestar', 'lakeStar.png');
 		game.load.image('skystar', 'skyStar.png');
 		game.load.image('player', 'player.png');
+
+		// Sounds
+		// Load all sounds into corresponding array
+		game.load.path = './assets/sounds/';
+		// BG
+		game.load.audio('twinkle', 'TwinkleLittleStar.mp3');
 	},
 	create: function()
 	{
