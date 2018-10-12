@@ -9,6 +9,7 @@ function skyStar(game, xpos, ypos, lakestarID) {
 	// setting properties
 	this.scale.setTo(0.3);
 
+	// for scope reasons
 	thislakestarID = lakestarID;
 }
 // explicitly define prefab's prototype (Phaser.Sprite) and constructor (skyStar)
