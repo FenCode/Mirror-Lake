@@ -25,6 +25,10 @@ play.prototype = {
 		// setting anchor to center
 		skystar.anchor.setTo(0.5);
 
+		// player
+		player = new Player(game, 100, 50, 1, 1);
+		game.add.existing(player);
+
 	},
 
 	update: function() {
