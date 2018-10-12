@@ -9,15 +9,15 @@ function skyStar(game, xpos, ypos, lakestarID) {
 	// setting properties
 	this.scale.setTo(0.3);
 
-	thislakestarID = lakestarID;
+	this.thislakestarID = lakestarID;
 }
 // explicitly define prefab's prototype (Phaser.Sprite) and constructor (skyStar)
 skyStar.prototype = Object.create(Phaser.Sprite.prototype);
 skyStar.prototype.constructor = skyStar;
 
 skyStar.prototype.update = function() {
-	this.x = thislakestarID.x;
-	this.y = -(thislakestarID.y - 600);
+	this.x = this.thislakestarID.x;
+	this.y = -(this.thislakestarID.y - 600);
 
 	//console.log('this.x pos: ' + this.x);
 	//console.log('this.y pos: ' + this.y)
