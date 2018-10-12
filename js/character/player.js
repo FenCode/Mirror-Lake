@@ -1,7 +1,7 @@
 // Player prefab constructor function
 function Player(game, key, frame, scale, rotation) {
 	// call to Phaser.Sprite // new Sprite(game, x, y, key, frame)
-	Phaser.Sprite.call(this, game, 50, 50, 'player', 'player', 1);
+	Phaser.Sprite.call(this, game, 50, 50, 'player', '', 1);
 
 	this.scale.setTo(0.1)
 	this.enableBody = true;

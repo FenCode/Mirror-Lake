@@ -13,6 +13,10 @@ play.prototype = {
 		platforms = game.add.group();
 		platforms.enableBody = true;
 
+		// bg music
+		var musics = game.add.audio('twinkle', 0.5, true);
+		musics.play();
+
 		// adding star prefab to game
 		lakestar1 = new lakeStar(game, game.width / 2, game.height / 2 + 100);
 		game.add.existing(lakestar1);
