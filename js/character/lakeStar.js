@@ -6,7 +6,7 @@ function lakeStar(game, xpos, ypos) {
 	Phaser.Sprite.call(this, game, xpos, ypos, 'lakestar');
 
 	// setting properties
-	this.scale.setTo(0.3);
+	this.scale.setTo(0.2);
 
 	// adding drag properties
 	this.inputEnabled = true;
