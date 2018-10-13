@@ -7,7 +7,7 @@ function skyStar(game, xpos, ypos, lakestarID) {
 	Phaser.Sprite.call(this, game, xpos, ypos, 'skystar');
 
 	// setting properties
-	this.scale.setTo(0.3);
+	//this.scale.setTo(0.3);
 	this.enableBody = true;
 
 
@@ -25,3 +25,6 @@ skyStar.prototype.update = function() {
 	//console.log('this.x pos: ' + this.x);
 	//console.log('this.y pos: ' + this.y)
 }
+
+
+

@@ -3,16 +3,7 @@ var play = function(game) {
 	// Global state variables
 }
 
-//will call/create first bridge
-function bridge1 (skyStar, bgStar2){
 
-	console.log('bridge1');
-}
-
-//will call/create 2nd bridge
-function bridge2(skySTar2, bgStar3){
-	console.log('bridge2');
-}
 
 
 play.prototype = {
@@ -57,31 +48,27 @@ play.prototype = {
 		// background stars that made the bridge?
 
 		this.bgstar = game.add.group();
+		this.bgstar.physicsBodyType = Phaser.Physics.ARCADE;
 		this.bgstar.enableBody = true;
 		
 		let bgStar = this.bgstar.create(80, 150, 'skystar');
 		bgStar.anchor.setTo(0.5);
-		bgStar.scale.setTo(0.3);
 
 		// bgstar to overlap with skystar
-		bgStar2 = this.bgstar.create(160, 150, 'skystar');
+		bgStar2 = this.bgstar.create(160, 150, 'skystar1');
 		bgStar2.anchor.setTo(0.5);
-		bgStar2.scale.setTo(0.1);
 		bgStar2.enableBody = true;
 
 		bgStar = this.bgstar.create(240, 150, 'skystar');
 		bgStar.anchor.setTo(0.5);
-		bgStar.scale.setTo(0.3);
 
 		//bg star to overlap with skystar2
-		bgStar3 = this.bgstar.create(320, 150, 'skystar');
+		bgStar3 = this.bgstar.create(320, 150, 'skystar1');
 		bgStar3.anchor.setTo(0.5);
-		bgStar3.scale.setTo(0.1);
 		bgStar3.enableBody = true;
 		
 		bgStar = this.bgstar.create(400, 150, 'skystar');
 		bgStar.anchor.setTo(0.5);
-		bgStar.scale.setTo(0.3);
 		
 		// bg lakestars
 
@@ -99,14 +86,29 @@ play.prototype = {
 		bglakeStar.scale.setTo(0.1);
 
 	},
+	
 
 	update: function() {
 
 		// overlap not working obviously
-		var overlap = game.physics.arcade.overlap(skystar, bgStar2, bridge1, null, this);
-		var overlap = game.physics.arcade.overlap(skystar2, bgStar3, bridge1, null, this);
+		if(game.physics.arcade.overlap(skystar, bgStar2)){
+
+			bridge1();
+		}
+		overlap = game.physics.arcade.overlap(skystar2, bgStar3, bridge2);
 
 	},
+};
+
+//will call/create first bridge
+function bridge1(){
+
+		console.log('bridge1');
+};
+
+	//will call/create 2nd bridge
+function bridge2(){
+		console.log('bridge2');
 };
 
 
