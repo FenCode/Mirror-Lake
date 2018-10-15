@@ -8,7 +8,7 @@ var play = function(game) {
 
 play.prototype = {
 	preload: function() {
-
+		this.bgstar;
 	},
 	create: function() {
 
@@ -34,6 +34,7 @@ play.prototype = {
 		// adding star prefab to game
 		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar1);
 		game.add.existing(skystar);
+		skystar.enableBody = true;
 		// setting anchor to center
 		skystar.anchor.setTo(0.5);
 
@@ -55,8 +56,9 @@ play.prototype = {
 		bgStar.anchor.setTo(0.5);
 
 		// bgstar to overlap with skystar
-		bgStar2 = this.bgstar.create(160, 150, 'skystar1');
+		bgStar2 = this.bgstar.create(160, 150, 'skystar');
 		bgStar2.anchor.setTo(0.5);
+		//bgStar2.scale.setTo(2);
 		bgStar2.enableBody = true;
 
 		bgStar = this.bgstar.create(240, 150, 'skystar');
@@ -91,24 +93,19 @@ play.prototype = {
 	update: function() {
 
 		// overlap not working obviously
-		if(game.physics.arcade.overlap(skystar, bgStar2)){
-
-			bridge1();
-		}
-		overlap = game.physics.arcade.overlap(skystar2, bgStar3, bridge2);
+		game.physics.arcade.overlap(skystar, this.bgstar, this.bridge1, null, this);
+		overlap = game.physics.arcade.overlap(skystar2, this.bgstar, this.bridge2, null, this);
 
 	},
-};
-
-//will call/create first bridge
-function bridge1(){
-
-		console.log('bridge1');
-};
-
-	//will call/create 2nd bridge
-function bridge2(){
-		console.log('bridge2');
+	bridge1: function(star1, star2) {
+		console.log('bridge 1 damit');
+	},
+	bridge2: function() {
+		console.log('work goddamit');
+	},
+	render: function() {
+		game.debug.body(true);
+	}
 };
 
 
