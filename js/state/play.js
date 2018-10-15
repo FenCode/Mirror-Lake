@@ -52,7 +52,7 @@ play.prototype = {
 		this.bgstar.enableBody = true;
 
 		// bgstar to overlap with skystar
-		overlapStar = this.bgstar.create(160, 150, 'skystar');
+		overlapStar = this.bgstar.create(160, 150, 'skystar1');
 		overlapStar.anchor.setTo(0.5);
 		//bgStar2.scale.setTo(2);
 		overlapStar.enableBody = true;
@@ -61,16 +61,16 @@ play.prototype = {
 		overlapStar2 = this.bgstar.create(320, 150, 'skystar1');
 		overlapStar2.anchor.setTo(0.5);
 		overlapStar2.enableBody = true;
-		
+
 		bgStar = this.bgstar.create(80, 150, 'skystar');
 		bgStar.anchor.setTo(0.5);
 
 		bgStar2 = this.bgstar.create(240, 150, 'skystar');
 		bgStar2.anchor.setTo(0.5);
-		
+
 		bgStar3 = this.bgstar.create(400, 150, 'skystar');
 		bgStar3.anchor.setTo(0.5);
-		
+
 		// bg lakestars
 
 		this.bglakestar = game.add.group();
@@ -102,7 +102,7 @@ play.prototype = {
 			console.log('bridge 2');
 			// call overlap function
 		}
-
+		console.log(skystar.x);
 	},
 	// bridge1: function(star1, star2) {
 	// 	console.log('bridge 1 damit');
@@ -119,19 +119,20 @@ play.prototype = {
 // checks to see if things overlap
 function checkOverlap(star1, star2)
 {
-	var bounds1 = star1.getBounds();
-	var bounds2 = star2.getBounds();
-
-	return Phaser.Rectangle.intersects(bounds1, bounds2);
+	//var bounds1 = star1.getBounds();
+	//var bounds2 = star2.getBounds();
+	//return Phaser.Rectangle.intersects(bounds1, bounds2);
+	if (game.math.difference(star1.x, star2.x)<1 && game.math.difference(star1.y, star2.y)<1){
+		return true;
+	}
 }
-
 // if correct stars overlap, then snap them in place
 function overlap(skystar, lakestar, overlapStar)
 {
 	skystar.x = overlapStar.x;
 	skystar.y = overlapStar.y;
 	lakestar.input.disableDrag();
-	// not snapping correctly 
+	// not snapping correctly
 	console.log('skystar x: ' + skystar.x);
 	console.log('overlap star x: ' + overlapStar.x);
 }
