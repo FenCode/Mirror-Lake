@@ -4,8 +4,6 @@ var play = function(game) {
 }
 
 
-
-
 play.prototype = {
 	preload: function() {
 		this.bgstar;
@@ -93,19 +91,38 @@ play.prototype = {
 	update: function() {
 
 		// overlap not working obviously
-		game.physics.arcade.overlap(skystar, this.bgstar, this.bridge1, null, this);
-		overlap = game.physics.arcade.overlap(skystar2, this.bgstar, this.bridge2, null, this);
+		// game.physics.arcade.overlap(skystar, this.bgstar, this.bridge1, null, this);
+		// overlap = game.physics.arcade.overlap(skystar2, this.bgstar, this.bridge2, null, this);
+
+		if(checkOverlap(skystar, bgStar2))
+		{
+			console.log('bridge 1');
+			// call overlap function
+		}
+		if(checkOverlap(skystar2, bgStar3))
+		{
+			console.log('bridge 2');
+			// call overlap function
+		}
 
 	},
-	bridge1: function(star1, star2) {
-		console.log('bridge 1 damit');
-	},
-	bridge2: function() {
-		console.log('work goddamit');
-	},
-	render: function() {
-		game.debug.body(true);
-	}
+	// bridge1: function(star1, star2) {
+	// 	console.log('bridge 1 damit');
+	// },
+	// bridge2: function() {
+	// 	console.log('work goddamit');
+	// },
+	// render: function() {
+	// 	game.debug.body(true);
+	// }
 };
 
+// example from phaser site
+// checks to see if things overlap
+function checkOverlap(star1, star2)
+{
+	var bounds1 = star1.getBounds();
+	var bounds2 = star2.getBounds();
 
+	return Phaser.Rectangle.intersects(bounds1, bounds2);
+}
