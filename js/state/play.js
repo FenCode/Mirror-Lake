@@ -19,24 +19,24 @@ play.prototype = {
 		musics.play();
 
 		// adding star prefab to game
-		lakestar1 = new lakeStar(game, game.width / 2, game.height / 2 + 100);
-		game.add.existing(lakestar1);
+		lakestar = new lakeStar(game, game.width / 2, game.height / 2 + 100);
+		game.add.existing(lakestar);
 		// setting anchor to center
-		lakestar1.anchor.setTo(0.5);
+		lakestar.anchor.setTo(0.5);
 
-		lakestar2 = new lakeStar(game, game.width - 150, game.height / 2 + 100);
-		game.add.existing(lakestar2);
-		lakestar2.anchor.setTo(0.5);
+		lakestar1 = new lakeStar(game, game.width - 150, game.height / 2 + 100);
+		game.add.existing(lakestar1);
+		lakestar1.anchor.setTo(0.5);
 
 
 		// adding star prefab to game
-		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar1);
+		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar);
 		game.add.existing(skystar);
 		skystar.enableBody = true;
 		// setting anchor to center
 		skystar.anchor.setTo(0.5);
 
-		skystar2 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar2);
+		skystar2 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar1);
 		game.add.existing(skystar2);
 		skystar2.anchor.setTo(0.5);
 
@@ -87,8 +87,6 @@ play.prototype = {
 		bglakeStar3.scale.setTo(0.1);
 
 	},
-	
-
 	update: function() {
 
 		// overlap not working obviously
@@ -97,8 +95,7 @@ play.prototype = {
 
 		if(checkOverlap(skystar, overlapStar))
 		{
-			console.log('bridge 1');
-			// call overlap function
+			overlap(skystar, lakestar, overlapStar);
 		}
 		if(checkOverlap(skystar2, overlapStar2))
 		{
@@ -126,4 +123,15 @@ function checkOverlap(star1, star2)
 	var bounds2 = star2.getBounds();
 
 	return Phaser.Rectangle.intersects(bounds1, bounds2);
+}
+
+// if correct stars overlap, then snap them in place
+function overlap(skystar, lakestar, overlapStar)
+{
+	skystar.x = overlapStar.x;
+	skystar.y = overlapStar.y;
+	lakestar.input.disableDrag();
+	// not snapping correctly 
+	console.log('skystar x: ' + skystar.x);
+	console.log('overlap star x: ' + overlapStar.x);
 }
