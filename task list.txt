@@ -5,4 +5,6 @@ TASKS
 	c. player switch control
 	d. reset button
 2. fish
+	a. moveable stars can be pushed away on a timer
+	b. catch fish to make them disappear
 3. black hole
