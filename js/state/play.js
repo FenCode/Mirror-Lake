@@ -1,6 +1,9 @@
 var play = function(game) {
 
 	// Global state variables
+	var fmove = false;
+
+
 }
 
 
@@ -48,6 +51,10 @@ play.prototype = {
 		// player
 		player = new Player(game, 50, 50, 1, 1);
 		game.add.existing(player);
+
+		// fisherboy/girl/whatever
+		fisher = new Fisher(game,100,100,1,1);
+		game.add.existing(fisher);
 
 		// background stars that made the bridge?
 
