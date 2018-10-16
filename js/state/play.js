@@ -99,8 +99,7 @@ play.prototype = {
 		}
 		if(checkOverlap(skystar2, overlapStar2))
 		{
-			console.log('bridge 2');
-			// call overlap function
+			overlap(skystar2, lakestar1, overlapStar2);
 		}
 		console.log(skystar.x);
 	},
