@@ -28,11 +28,14 @@ play.prototype = {
 		game.add.existing(lakestar1);
 		lakestar1.anchor.setTo(0.5);
 
+		// player
+		player = new Player(game, 50, 50, 1, 1);
+		game.add.existing(player);
 
 		// adding star prefab to game
 		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar);
 		game.add.existing(skystar);
-		skystar.enableBody = true;
+
 		// setting anchor to center
 		skystar.anchor.setTo(0.5);
 
@@ -40,9 +43,7 @@ play.prototype = {
 		game.add.existing(skystar2);
 		skystar2.anchor.setTo(0.5);
 
-		// player
-		player = new Player(game, 50, 50, 1, 1);
-		game.add.existing(player);
+
 
 		// background stars that made the bridge?
 
@@ -63,7 +64,11 @@ play.prototype = {
 		overlapStar2.enableBody = true;
 
 		bgStar = this.bgstar.create(80, 150, 'skystar');
+		bgStar.scale.setTo(2);
 		bgStar.anchor.setTo(0.5);
+		bgStar.enableBody = true;
+		bgStar.body.immovable = true;
+		console.log('a');
 
 		bgStar2 = this.bgstar.create(240, 150, 'skystar');
 		bgStar2.anchor.setTo(0.5);
@@ -88,6 +93,7 @@ play.prototype = {
 
 	},
 	update: function() {
+		game.physics.arcade.collide(player, bgStar);
 		if(checkOverlap(skystar, overlapStar))
 		{
 			overlap(skystar, lakestar, overlapStar);
