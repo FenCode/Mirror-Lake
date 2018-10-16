@@ -20,6 +20,7 @@ Load.prototype = {
 		game.load.image('skystar', 'skyStar.png');
 		game.load.image('skystar1', 'skyStar1.png');
 		game.load.image('player', 'player.png');
+		game.load.image('reset', 'reset.png');
 
 		// Sounds
 		// Load all sounds into corresponding array
@@ -32,3 +33,8 @@ Load.prototype = {
 		game.state.start('play');
 	},
 };
+
+function reset()
+{
+	game.state.start('play');
+}

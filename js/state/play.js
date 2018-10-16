@@ -18,6 +18,11 @@ play.prototype = {
 		var musics = game.add.audio('twinkle', 0.5, true);
 		musics.play();
 
+		// adding reset button (function in main)
+		resetButton = game.add.button(64, 32, 'reset', reset, this);
+        resetButton.anchor.setTo(0.5);
+        resetButton.scale.setTo(0.3);
+
 		// adding star prefab to game
 		lakestar = new lakeStar(game, game.width / 2, game.height / 2 + 100);
 		game.add.existing(lakestar);
@@ -97,7 +102,6 @@ play.prototype = {
 		{
 			overlap(skystar2, lakestar1, overlapStar2);
 			console.log('bridge 2 overlap');
-			// call overlap function
 		}
 	},
 };
