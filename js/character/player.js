@@ -29,6 +29,7 @@ Player.prototype.update = function() {
 		console.log('down');
 	}else{
 		this.body.velocity.x = 0;
+		this.body.velocity.y = 0;
 	}
 
 
