@@ -1,0 +1,8 @@
+TASKS
+1. bridge
+	a. star hitboxes
+	b. gravity
+	c. player switch control
+	d. reset button
+2. fish
+3. black hole
