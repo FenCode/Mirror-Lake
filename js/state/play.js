@@ -96,13 +96,14 @@ play.prototype = {
 		if(checkOverlap(skystar, overlapStar))
 		{
 			overlap(skystar, lakestar, overlapStar);
+			console.log('bridge 1 overlap');
 		}
 		if(checkOverlap(skystar2, overlapStar2))
 		{
-			console.log('bridge 2');
+			overlap(skystar2, lakestar1, overlapStar2);
+			console.log('bridge 2 overlap');
 			// call overlap function
 		}
-		console.log(skystar.x);
 	},
 	// bridge1: function(star1, star2) {
 	// 	console.log('bridge 1 damit');
@@ -133,6 +134,6 @@ function overlap(skystar, lakestar, overlapStar)
 	skystar.y = overlapStar.y;
 	lakestar.input.disableDrag();
 	// not snapping correctly
-	console.log('skystar x: ' + skystar.x);
-	console.log('overlap star x: ' + overlapStar.x);
+	//console.log('skystar x: ' + skystar.x);
+	//console.log('overlap star x: ' + overlapStar.x);
 }
