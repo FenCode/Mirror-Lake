@@ -10,18 +10,16 @@ play.prototype = {
 	},
 	create: function() {
 
-		game.physics.startSystem(Phaser.Physics.ARCADE);
-		platforms = game.add.group();
-		platforms.enableBody = true;
+		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		// bg music
 		var musics = game.add.audio('twinkle', 0.5, true);
-		musics.play();
+		//musics.play();
 
 		// adding reset button (function in main)
 		resetButton = game.add.button(64, 32, 'reset', reset, this);
-        resetButton.anchor.setTo(0.5);
-        resetButton.scale.setTo(0.3);
+    resetButton.anchor.setTo(0.5);
+    resetButton.scale.setTo(0.3);
 
 		// adding star prefab to game
 		lakestar = new lakeStar(game, game.width / 2, game.height / 2 + 100);
@@ -40,9 +38,9 @@ play.prototype = {
 		// adding star prefab to game
 		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar);
 		game.add.existing(skystar);
-
 		// setting anchor to center
 		skystar.anchor.setTo(0.5);
+
 
 		skystar2 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar1);
 		game.add.existing(skystar2);
@@ -54,8 +52,9 @@ play.prototype = {
 
 		// creating background star group
 		this.bgstar = game.add.group();
-		this.bgstar.physicsBodyType = Phaser.Physics.ARCADE;
+		this.game.physics.enable(this.bgstar, Phaser.Physics.ARCADE);
 		this.bgstar.enableBody = true;
+		console.log('abc');
 
 		// bgstar to overlap with skystar
 		overlapStar = this.bgstar.create(160, 150, 'skystar1');
@@ -69,17 +68,24 @@ play.prototype = {
 		overlapStar2.enableBody = true;
 
 		bgStar = this.bgstar.create(80, 150, 'skystar');
-		bgStar.scale.setTo(2);
 		bgStar.anchor.setTo(0.5);
-		bgStar.enableBody = true;
+		//add hitbox to sprite
+		bgStar.body.collideWorldBounds = true;
+		bgStar.body.setSize(70, 79, 25, 40);
 		bgStar.body.immovable = true;
-		console.log('a');
+
 
 		bgStar2 = this.bgstar.create(240, 150, 'skystar');
 		bgStar2.anchor.setTo(0.5);
+		bgStar2.body.collideWorldBounds = true;
+		bgStar2.body.setSize(70, 79, 25, 40);
+		bgStar2.body.immovable = true;
 
 		bgStar3 = this.bgstar.create(400, 150, 'skystar');
 		bgStar3.anchor.setTo(0.5);
+		bgStar3.body.collideWorldBounds = true;
+		bgStar3.body.setSize(70, 79, 25, 40);
+		bgStar3.body.immovable = true;
 
 		// bg lakestars
 
