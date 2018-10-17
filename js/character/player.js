@@ -7,7 +7,9 @@ function Player(game, key, frame, scale, rotation) {
 	this.enableBody = true;
 
 	game.physics.enable(this, Phaser.Physics.ARCADE);
-	this.body.gravity.y = 100;
+	//this.body.gravity.y = 100;
+	//change the variable names if you want, lazy
+	pmove = 0;
 }
 // explicitly define prefab's prototype (Phaser.Sprite) and constructor (Player)
 Player.prototype = Object.create(Phaser.Sprite.prototype);
@@ -32,3 +34,13 @@ Player.prototype.update = function() {
 
 
 }
+// function to change pmove value, not working yet(?)
+// function move(){
+// 	if(pmove == 1){
+// 		console.log('player move');
+// 		pmove = 0;
+// 	}else{
+// 		pmove = 1;
+// 		console.log('player no move');
+// 	}
+// }

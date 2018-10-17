@@ -1,6 +1,9 @@
 var play = function(game) {
 
 	// Global state variables
+	var fmove = false;
+
+
 }
 
 
@@ -47,6 +50,10 @@ play.prototype = {
 		skystar2.anchor.setTo(0.5);
 
 
+
+		// fisherboy/girl/whatever
+		fisher = new Fisher(game,100,100,1,1);
+		game.add.existing(fisher);
 
 		// background stars that made the bridge?
 

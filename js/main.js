@@ -1,4 +1,5 @@
 var game;
+var fmove = false;
 
 
 // State management

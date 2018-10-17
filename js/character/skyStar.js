@@ -25,6 +25,3 @@ skyStar.prototype.update = function() {
 	//console.log('this.x pos: ' + this.x);
 	//console.log('this.y pos: ' + this.y)
 }
-
-
-
