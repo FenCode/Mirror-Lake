@@ -7,26 +7,30 @@ function Player(game, key, frame, scale, rotation) {
 	this.enableBody = true;
 
 	game.physics.enable(this, Phaser.Physics.ARCADE);
-	//this.body.gravity.y = 100;
-	//change the variable names if you want, lazy
-	pmove = 0;
+	this.body.gravity.y = 100;
+
+
+	game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
+
 }
 // explicitly define prefab's prototype (Phaser.Sprite) and constructor (Player)
 Player.prototype = Object.create(Phaser.Sprite.prototype);
 Player.prototype.constructor = Player;
 
-
 Player.prototype.update = function() {
 	//movement controls
 
+	if(fmove == 0){
+		if(game.input.keyboard.isDown(Phaser.Keyboard.D)){
+			this.body.velocity.x = 50;
+		} else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
+			this.body.velocity.x = -50;
+		} else if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
+			this.body.velocity.y = -50;
 
-	if(game.input.keyboard.isDown(Phaser.Keyboard.D)){
-		this.body.velocity.x = 50;
-	} else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
-		this.body.velocity.x = -50;
-	} else if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
-		this.body.velocity.y = -50;
-
+		}else{
+			this.body.velocity.x = 0;
+		}
 	}else{
 		this.body.velocity.x = 0;
 	}
@@ -34,13 +38,3 @@ Player.prototype.update = function() {
 
 
 }
-// function to change pmove value, not working yet(?)
-// function move(){
-// 	if(pmove == 1){
-// 		console.log('player move');
-// 		pmove = 0;
-// 	}else{
-// 		pmove = 1;
-// 		console.log('player no move');
-// 	}
-// }

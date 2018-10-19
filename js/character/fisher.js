@@ -7,8 +7,8 @@ function Fisher(game, key, frame, scale, rotation) {
 	this.enableBody = true;
 
 	game.physics.enable(this, Phaser.Physics.ARCADE);
-	// tried to pass a global boolean for movement swtching, didn't work so more low level code for allan!
-	fmove = 0;
+	
+	
 
 }
 // explicitly define prefab's prototype (Phaser.Sprite) and constructor (Player)
@@ -19,7 +19,7 @@ Fisher.prototype.constructor = Player;
 Fisher.prototype.update = function() {
 	//movement controls
 	//function to change the value of fmove for character movement switching
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.SPACEBAR)){
+	if(this.game.input.keyboard.justPressed(Phaser.Keyboard.SPACEBAR)){
 			move();
 			console.log('spacebar');
 	}
@@ -39,6 +39,7 @@ Fisher.prototype.update = function() {
 
 // changes fmove value to 1 or 0 yadida
 function move(){
+	console.log('fucking move function')
 	if(fmove == 1){
 		console.log('fmove false');
 		fmove = 0;

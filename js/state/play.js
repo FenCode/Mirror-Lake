@@ -1,7 +1,7 @@
 var play = function(game) {
 
 	// Global state variables
-	var fmove = false;
+	var fmove = 0;
 
 
 }
