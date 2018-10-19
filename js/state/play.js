@@ -30,6 +30,7 @@ play.prototype = {
 		// setting anchor to center
 		lakestar.anchor.setTo(0.5);
 
+
 		lakestar1 = new lakeStar(game, game.width - 150, game.height / 2 + 100);
 		game.add.existing(lakestar1);
 		lakestar1.anchor.setTo(0.5);
@@ -61,13 +62,13 @@ play.prototype = {
 		this.bgstar = game.add.group();
 		this.game.physics.enable(this.bgstar, Phaser.Physics.ARCADE);
 		this.bgstar.enableBody = true;
-		console.log('abc');
 
 		// bgstar to overlap with skystar
 		overlapStar = this.bgstar.create(160, 150, 'skystar1');
 		overlapStar.anchor.setTo(0.5);
 		//bgStar2.scale.setTo(2);
 		overlapStar.enableBody = true;
+
 
 		//bg star to overlap with skystar2
 		overlapStar2 = this.bgstar.create(320, 150, 'skystar1');
@@ -78,20 +79,20 @@ play.prototype = {
 		bgStar.anchor.setTo(0.5);
 		//add hitbox to sprite
 		bgStar.body.collideWorldBounds = true;
-		bgStar.body.setSize(70, 79, 25, 40);
+		bgStar.body.setSize(70, 1, 0, 40);
 		bgStar.body.immovable = true;
 
 
 		bgStar2 = this.bgstar.create(240, 150, 'skystar');
 		bgStar2.anchor.setTo(0.5);
 		bgStar2.body.collideWorldBounds = true;
-		bgStar2.body.setSize(70, 79, 25, 40);
+		bgStar2.body.setSize(70, 1, 0, 40);
 		bgStar2.body.immovable = true;
 
 		bgStar3 = this.bgstar.create(400, 150, 'skystar');
 		bgStar3.anchor.setTo(0.5);
 		bgStar3.body.collideWorldBounds = true;
-		bgStar3.body.setSize(70, 79, 25, 40);
+		bgStar3.body.setSize(70, 1, 0, 40);
 		bgStar3.body.immovable = true;
 
 		// bg lakestars
@@ -111,10 +112,19 @@ play.prototype = {
 
 	},
 	update: function() {
+		//collision between player and skystars
 		game.physics.arcade.collide(player, bgStar);
+		game.physics.arcade.collide(player, bgStar2);
+		game.physics.arcade.collide(player, bgStar3);
+		game.physics.arcade.collide(player, overlapStar);
+		game.physics.arcade.collide(player, overlapStar2);
+
+
+
 		if(checkOverlap(skystar, overlapStar))
 		{
 			overlap(skystar, lakestar, overlapStar);
+			//once overlapstar in its designated position enable collision disable drag
 			console.log('bridge 1 overlap');
 		}
 		if(checkOverlap(skystar2, overlapStar2))
@@ -139,4 +149,7 @@ function overlap(skystar, lakestar, overlapStar)
 	skystar.x = overlapStar.x;
 	skystar.y = overlapStar.y;
 	lakestar.input.disableDrag();
+	overlapStar.body.collideWorldBounds = true;
+	overlapStar.body.setSize(70, 1, 0, 10.5);
+	overlapStar.body.immovable = true;
 }
