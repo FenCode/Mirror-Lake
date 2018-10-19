@@ -8,6 +8,7 @@ window.onload = function() {
 	//states
 	game.state.add('Load', Load);
 	game.state.add('play', play);
+	game.state.add('fishLevel', fishLevel);
 	game.state.start('Load');
 }
 
@@ -22,6 +23,8 @@ Load.prototype = {
 		game.load.image('skystar1', 'skyStar1.png');
 		game.load.image('player', 'player.png');
 		game.load.image('reset', 'reset.png');
+		game.load.image('rectangle', 'rectangle.png');
+		game.load.image('goal', 'goal.png');
 
 		// Sounds
 		// Load all sounds into corresponding array
