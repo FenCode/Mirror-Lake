@@ -21,8 +21,8 @@ play.prototype = {
 
 		// adding reset button (function in main)
 		resetButton = game.add.button(64, 32, 'reset', reset, this);
-    resetButton.anchor.setTo(0.5);
-    resetButton.scale.setTo(0.3);
+   		resetButton.anchor.setTo(0.5);
+   		resetButton.scale.setTo(0.3);
 
 		// adding star prefab to game
 		lakestar = new lakeStar(game, game.width / 2, game.height / 2 + 100);
@@ -75,6 +75,7 @@ play.prototype = {
 		overlapStar2.anchor.setTo(0.5);
 		overlapStar2.enableBody = true;
 
+
 		bgStar = this.bgstar.create(80, 150, 'skystar');
 		bgStar.anchor.setTo(0.5);
 		//add hitbox to sprite
@@ -125,12 +126,10 @@ play.prototype = {
 		{
 			overlap(skystar, lakestar, overlapStar);
 			//once overlapstar in its designated position enable collision disable drag
-			console.log('bridge 1 overlap');
 		}
 		if(checkOverlap(skystar2, overlapStar2))
 		{
 			overlap(skystar2, lakestar1, overlapStar2);
-			console.log('bridge 2 overlap');
 		}
 	},
 };
