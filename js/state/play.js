@@ -21,20 +21,8 @@ play.prototype = {
 
 		// adding reset button (function in main)
 		resetButton = game.add.button(64, 32, 'reset', reset, this);
-    	resetButton.anchor.setTo(0.5);
-    	resetButton.scale.setTo(0.3);
-
-    	// adding a mini instruction panel
-    	rectangle = game.add.image(game.width / 2, game.height / 2, 'rectangle');
-    	rectangle.anchor.setTo(0.5);
-    	rectangle.scale.setTo(0.6);
-    	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
-    	text = game.add.text(0, 0, 'Drag the golden stars to move the blue stars in the sky to their right positions!\nThen use WASD to move the sky person across the bridge.\n\nClick to continue.', style);
-    	text.anchor.setTo(0.5);
-    	rectangle.addChild(text);
-    	// destroy rectangle on click; destroySprite function in play.js
-    	rectangle.inputEnabled = true;
-    	rectangle.events.onInputDown.add(destroySprite, this);
+    resetButton.anchor.setTo(0.5);
+    resetButton.scale.setTo(0.3);
 
 		// adding star prefab to game
 		lakestar = new lakeStar(game, game.width / 2, game.height / 2 + 100);
@@ -62,13 +50,10 @@ play.prototype = {
 		skystar2.anchor.setTo(0.5);
 
 
+
 		// fisherboy/girl/whatever
 		fisher = new Fisher(game,100,100,1,1);
 		game.add.existing(fisher);
-
-		// add goal
-		goal = new Goal(game, 100, 100, 1, 1);
-		game.add.existing(goal);
 
 		// background stars that made the bridge?
 
@@ -110,6 +95,7 @@ play.prototype = {
 		bgStar3.body.immovable = true;
 
 		// bg lakestars
+
 		this.bglakestar = game.add.group();
 		bglakeStar = this.bglakestar.create(80, 450, 'lakestar');
 		bglakeStar.anchor.setTo(0.5);
@@ -129,20 +115,13 @@ play.prototype = {
 		if(checkOverlap(skystar, overlapStar))
 		{
 			overlap(skystar, lakestar, overlapStar);
-			// console.log('bridge 1 overlap');
+			console.log('bridge 1 overlap');
 		}
 		if(checkOverlap(skystar2, overlapStar2))
 		{
 			overlap(skystar2, lakestar1, overlapStar2);
-			// console.log('bridge 2 overlap');
+			console.log('bridge 2 overlap');
 		}
-		if(checkOverlap(player, goal))
-		{
-			game.state.start('fishLevel');
-			console.log('player collided with goal');
-		}
-		// making instruction thing first viewable thing
-		game.world.bringToTop(rectangle);
 	},
 };
 
@@ -160,10 +139,4 @@ function overlap(skystar, lakestar, overlapStar)
 	skystar.x = overlapStar.x;
 	skystar.y = overlapStar.y;
 	lakestar.input.disableDrag();
-}
-
-// destroy sprite function
-function destroySprite(sprite)
-{
-	sprite.destroy();
 }
