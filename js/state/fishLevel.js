@@ -1,4 +1,4 @@
-var play = function(game) {
+var fishLevel = function(game) {
 
 	// Global state variables
 	var fmove = false;
@@ -7,7 +7,7 @@ var play = function(game) {
 }
 
 
-play.prototype = {
+fishLevel.prototype = {
 	preload: function() {
 		this.bgstar;
 	},
@@ -29,7 +29,7 @@ play.prototype = {
     	rectangle.anchor.setTo(0.5);
     	rectangle.scale.setTo(0.6);
     	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
-    	text = game.add.text(0, 0, 'Drag the golden stars to move the blue stars in the sky to their right positions!\nThen use WASD to move the sky person across the bridge.\n\nClick to continue.', style);
+    	text = game.add.text(0, 0, 'Avoid the fish!\n\nClick to continue.', style);
     	text.anchor.setTo(0.5);
     	rectangle.addChild(text);
     	// destroy rectangle on click; destroySprite function in play.js
@@ -138,32 +138,9 @@ play.prototype = {
 		}
 		if(checkOverlap(player, goal))
 		{
-			game.state.start('fishLevel');
 			console.log('player collided with goal');
 		}
 		// making instruction thing first viewable thing
 		game.world.bringToTop(rectangle);
 	},
 };
-
-// example from phaser site
-// checks to see if things overlap
-function checkOverlap(star1, star2)
-{
-	if (game.math.difference(star1.x, star2.x)<1 && game.math.difference(star1.y, star2.y)<1){
-		return true;
-	}
-}
-// if correct stars overlap, then snap them in place
-function overlap(skystar, lakestar, overlapStar)
-{
-	skystar.x = overlapStar.x;
-	skystar.y = overlapStar.y;
-	lakestar.input.disableDrag();
-}
-
-// destroy sprite function
-function destroySprite(sprite)
-{
-	sprite.destroy();
-}

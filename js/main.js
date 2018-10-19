@@ -8,6 +8,7 @@ window.onload = function() {
 	//states
 	game.state.add('Load', Load);
 	game.state.add('play', play);
+	game.state.add('fishLevel', fishLevel);
 	game.state.start('Load');
 }
 
