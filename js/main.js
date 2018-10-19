@@ -23,6 +23,7 @@ Load.prototype = {
 		game.load.image('player', 'player.png');
 		game.load.image('reset', 'reset.png');
 		game.load.image('rectangle', 'rectangle.png');
+		game.load.image('goal', 'goal.png');
 
 		// Sounds
 		// Load all sounds into corresponding array

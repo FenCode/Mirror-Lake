@@ -66,6 +66,10 @@ play.prototype = {
 		fisher = new Fisher(game,100,100,1,1);
 		game.add.existing(fisher);
 
+		// add goal
+		goal = new Goal(game, 100, 100, 1, 1);
+		game.add.existing(goal);
+
 		// background stars that made the bridge?
 
 		// creating background star group
@@ -106,7 +110,6 @@ play.prototype = {
 		bgStar3.body.immovable = true;
 
 		// bg lakestars
-
 		this.bglakestar = game.add.group();
 		bglakeStar = this.bglakestar.create(80, 450, 'lakestar');
 		bglakeStar.anchor.setTo(0.5);
@@ -133,7 +136,7 @@ play.prototype = {
 			overlap(skystar2, lakestar1, overlapStar2);
 			console.log('bridge 2 overlap');
 		}
-		// making tutorial thing first viewable thing
+		// making instruction thing first viewable thing
 		game.world.bringToTop(rectangle);
 	},
 };

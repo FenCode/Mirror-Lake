@@ -19,7 +19,6 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function() {
 	//movement controls
 
-
 	if(game.input.keyboard.isDown(Phaser.Keyboard.D)){
 		this.body.velocity.x = 50;
 	} else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){

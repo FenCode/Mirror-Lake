@@ -4,6 +4,6 @@ TASKS
 	b. gravity//DONE
 	c. player switch control
 	d. reset button//DONE
-	e. instructions (?)
+	e. instructions (?)//DONE
 2. fish
 3. black hole
