@@ -24,6 +24,18 @@ play.prototype = {
    		resetButton.anchor.setTo(0.5);
    		resetButton.scale.setTo(0.3);
 
+   		// adding a mini instruction panel
+    	rectangle = game.add.image(game.width / 2, game.height / 2, 'rectangle');
+    	rectangle.anchor.setTo(0.5);
+    	rectangle.scale.setTo(0.6);
+    	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
+    	text = game.add.text(0, 0, 'move the stars!\n\nClick to continue.', style);
+    	text.anchor.setTo(0.5);
+    	rectangle.addChild(text);
+    	// destroy rectangle on click; destroySprite function in play.js
+    	rectangle.inputEnabled = true;
+    	rectangle.events.onInputDown.add(destroySprite, this);
+
 		// adding star prefab to game
 		lakestar = new lakeStar(game, game.width / 2, game.height / 2 + 100);
 		game.add.existing(lakestar);
