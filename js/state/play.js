@@ -29,7 +29,7 @@ play.prototype = {
     	rectangle.anchor.setTo(0.5);
     	rectangle.scale.setTo(0.6);
     	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
-    	text = game.add.text(0, 0, 'move the stars!\n\nClick to continue.', style);
+    	text = game.add.text(0, 0, 'Drag the golden stars to move the blue stars in the sky to their correct positions. Then, use WASD to move the sky player to the goal!\n\nClick to continue.', style);
     	text.anchor.setTo(0.5);
     	rectangle.addChild(text);
     	// destroy rectangle on click; destroySprite function in play.js
@@ -57,16 +57,17 @@ play.prototype = {
 		// setting anchor to center
 		skystar.anchor.setTo(0.5);
 
-
 		skystar2 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar1);
 		game.add.existing(skystar2);
 		skystar2.anchor.setTo(0.5);
 
-
-
 		// fisherboy/girl/whatever
 		fisher = new Fisher(game,100,100,1,1);
 		game.add.existing(fisher);
+
+		// add goal
+		goal = new Goal(game, 100, 100, 1, 1);
+		game.add.existing(goal);
 
 		// background stars that made the bridge?
 
@@ -143,10 +144,16 @@ play.prototype = {
 		{
 			overlap(skystar2, lakestar1, overlapStar2);
 		}
+		if(checkOverlap(player, goal))
+		{
+			console.log('player collided with goal');
+			game.state.start('fishLevel');
+		}
+		// making instruction thing first viewable thing
+		game.world.bringToTop(rectangle);
 	},
 };
 
-// example from phaser site
 // checks to see if things overlap
 function checkOverlap(star1, star2)
 {
@@ -163,4 +170,9 @@ function overlap(skystar, lakestar, overlapStar)
 	overlapStar.body.collideWorldBounds = true;
 	overlapStar.body.setSize(70, 1, 0, 10.5);
 	overlapStar.body.immovable = true;
+}
+
+function destroySprite(sprite)
+{
+	sprite.destroy();
 }
