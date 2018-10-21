@@ -38,7 +38,7 @@ Load.prototype = {
 	},
 };
 
-function reset()
-{
-	game.state.start('play');
-}
+// function reset()
+// {
+// 	game.state.start('play');
+// }

@@ -2,8 +2,6 @@ var play = function(game) {
 
 	// Global state variables
 	var fmove = 0;
-
-
 }
 
 
@@ -20,6 +18,7 @@ play.prototype = {
 		//musics.play();
 
 		// adding reset button (function in main)
+		// moved to play states for now
 		resetButton = game.add.button(64, 32, 'reset', reset, this);
    		resetButton.anchor.setTo(0.5);
    		resetButton.scale.setTo(0.3);
@@ -47,6 +46,10 @@ play.prototype = {
 		game.add.existing(lakestar1);
 		lakestar1.anchor.setTo(0.5);
 
+		// add goal
+		goal = new Goal(game, 400, 120, 1, 1);
+		game.add.existing(goal);
+
 		// player
 		player = new Player(game, 50, 50, 1, 1);
 		game.add.existing(player);
@@ -64,10 +67,6 @@ play.prototype = {
 		// fisherboy/girl/whatever
 		fisher = new Fisher(game,100,100,1,1);
 		game.add.existing(fisher);
-
-		// add goal
-		goal = new Goal(game, 100, 100, 1, 1);
-		game.add.existing(goal);
 
 		// background stars that made the bridge?
 
@@ -176,3 +175,9 @@ function destroySprite(sprite)
 {
 	sprite.destroy();
 }
+
+function reset()
+{
+	game.state.start('play');
+}
+

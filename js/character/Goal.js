@@ -1,7 +1,8 @@
 // Goal prefab constructor function
-function Goal(game, key, frame, scale, rotation) {
+function Goal(game, xpos, ypos, scale, rotation) {
 	// call to Phaser.Sprite // new Sprite(game, x, y, key, frame)
-	Phaser.Sprite.call(this, game, 430, 130, 'goal', '', 1);
+	//Phaser.Sprite.call(this, game, 430, 130, 'goal', '', 1);
+	Phaser.Sprite.call(this, game, xpos, ypos, 'goal');
 	this.anchor.setTo(0.5);
 	this.scale.setTo(0.1);
 	this.enableBody = true;
