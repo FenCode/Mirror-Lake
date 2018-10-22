@@ -4,7 +4,7 @@ var fmove = false;
 
 // State management
 window.onload = function() {
-	game = new Phaser.Game(500, 600, Phaser.AUTO, 'game');
+	game = new Phaser.Game(1120, 630, Phaser.AUTO, 'game');
 	//states
 	game.state.add('Load', Load);
 	game.state.add('play', play);
@@ -25,6 +25,11 @@ Load.prototype = {
 		game.load.image('reset', 'reset.png');
 		game.load.image('rectangle', 'rectangle.png');
 		game.load.image('goal', 'goal.png');
+
+		game.load.path = './assets/artwork/';
+		game.load.image('star', 'star.png');
+		game.load.image('lakeStar', 'lakeStar.png');
+		game.load.image('starLakebg', 'starLakebg.png');
 
 		// Sounds
 		// Load all sounds into corresponding array

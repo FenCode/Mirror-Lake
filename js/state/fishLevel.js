@@ -49,14 +49,13 @@ fishLevel.prototype = {
 		game.add.existing(lakestar2);
 		lakestar2.anchor.setTo(0.5);
 
-
-		// add goal
-		goal = new Goal(game, 470, 170, 1, 1);
-		game.add.existing(goal);
-
 		// player
 		player = new Player(game, 50, 50, 1, 1);
 		game.add.existing(player);
+
+		// add goal
+		goal = new Goal(game, 470, 180, 1, 1);
+		game.add.existing(goal);
 
 		// adding star prefab to game
 		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar);

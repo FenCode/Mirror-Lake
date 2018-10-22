@@ -3,7 +3,7 @@
 function lakeStar(game, xpos, ypos) {
 
 	// call to Phaser.Sprite // new Sprite(game, x, y, key, frame)
-	Phaser.Sprite.call(this, game, xpos, ypos, 'lakestar');
+	Phaser.Sprite.call(this, game, xpos, ypos, 'lakeStar');
 
 	// setting properties
 	this.scale.setTo(0.2);

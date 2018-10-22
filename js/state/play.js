@@ -13,6 +13,10 @@ play.prototype = {
 
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
+		// add background
+		background = game.add.image(0, 0, 'starLakebg');
+		background.scale.setTo(0.7);
+
 		// bg music
 		var musics = game.add.audio('twinkle', 0.5, true);
 		//musics.play();
@@ -46,13 +50,13 @@ play.prototype = {
 		game.add.existing(lakestar1);
 		lakestar1.anchor.setTo(0.5);
 
-		// add goal
-		goal = new Goal(game, 400, 120, 1, 1);
-		game.add.existing(goal);
-
 		// player
 		player = new Player(game, 50, 50, 1, 1);
 		game.add.existing(player);
+
+		// add goal
+		goal = new Goal(game, 400, 120, 1, 1);
+		game.add.existing(goal);
 
 		// adding star prefab to game
 		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar);
