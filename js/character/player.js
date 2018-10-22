@@ -22,9 +22,9 @@ Player.prototype.update = function() {
 
 	if(fmove == 0){
 		if(game.input.keyboard.isDown(Phaser.Keyboard.D)){
-			this.body.velocity.x = 30;
+			this.body.velocity.x = 60;
 		} else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
-			this.body.velocity.x = -30;
+			this.body.velocity.x = -60;
 		} else{
 			this.body.velocity.x = 0;
 		}
