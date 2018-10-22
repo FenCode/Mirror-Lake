@@ -11,6 +11,9 @@ fishLevel.prototype = {
 	},
 	create: function() {
 
+		background = game.add.image(0, 0, 'starLakebg');
+		background.scale.setTo(0.7);
+
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		// bg music
@@ -53,7 +56,7 @@ fishLevel.prototype = {
 		lakestar3.anchor.setTo(0.5);
 
 		// add goal
-		goal = new Goal(game, 1090, 300, 1, 1);
+		goal = new Goal(game, 1000, 300, 1, 1);
 		game.add.existing(goal);
 
 		// adding star prefab to game
@@ -164,6 +167,8 @@ fishLevel.prototype = {
 		bglakeStar3 = this.bglakestar.create(400, 450, 'lakestar');
 		bglakeStar3.anchor.setTo(0.5);
 		bglakeStar3.scale.setTo(0.1);
+
+		// fish
 
 		// player
 		// player

@@ -1,8 +1,8 @@
 TASKS
 1. bridge
-	a. star hitboxes
+	a. star hitboxes// sorta done
 	b. gravity//DONE
-	c. player switch control
+	c. player switch control // done
 	d. reset button//DONE
 	e. instructions (?)//DONE
 2. fish
