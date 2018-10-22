@@ -21,7 +21,7 @@ play.prototype = {
 		var musics = game.add.audio('twinkle', 0.5, true);
 		//musics.play();
 
-		// adding reset button 
+		// adding reset button
 		resetButton = game.add.button(64, 32, 'reset', resetPlay, this);
    		resetButton.anchor.setTo(0.5);
    		resetButton.scale.setTo(0.3);
@@ -104,56 +104,56 @@ play.prototype = {
 		bgStar.anchor.setTo(0.5);
 		//add hitbox to sprite
 		bgStar.body.collideWorldBounds = true;
-		bgStar.body.setSize(70, 1, 0, 40);
+		bgStar.body.setSize(60, 1, 0, 52);
 		bgStar.body.immovable = true;
 
 
 		bgStar2 = this.bgstar.create(240, 150, 'skyStar');
 		bgStar2.anchor.setTo(0.5);
 		bgStar2.body.collideWorldBounds = true;
-		bgStar2.body.setSize(70, 1, 0, 40);
+		bgStar2.body.setSize(60, 1, 0, 52);
 		bgStar2.body.immovable = true;
 
 		bgStar3 = this.bgstar.create(400, 150, 'skyStar');
 		bgStar3.anchor.setTo(0.5);
 		bgStar3.body.collideWorldBounds = true;
-		bgStar3.body.setSize(70, 1, 0, 40);
+		bgStar3.body.setSize(60, 1, 0, 52);
 		bgStar3.body.immovable = true;
 
 		bgStar4 = this.bgstar.create(480, 150, 'skyStar');
 		bgStar4.anchor.setTo(0.5);
 		bgStar4.body.collideWorldBounds = true;
-		bgStar4.body.setSize(70, 1, 0, 40);
+		bgStar4.body.setSize(60, 1, 0, 52);
 		bgStar4.body.immovable = true;
 
 		bgStar5 = this.bgstar.create(560, 150, 'skyStar');
 		bgStar5.anchor.setTo(0.5);
 		bgStar5.body.collideWorldBounds = true;
-		bgStar5.body.setSize(70, 1, 0, 40);
+		bgStar5.body.setSize(60, 1, 0, 52);
 		bgStar5.body.immovable = true;
 
 		bgStar6 = this.bgstar.create(640, 150, 'skyStar');
 		bgStar6.anchor.setTo(0.5);
 		bgStar6.body.collideWorldBounds = true;
-		bgStar6.body.setSize(70, 1, 0, 40);
+		bgStar6.body.setSize(60, 1, 0, 52);
 		bgStar6.body.immovable = true;
 
 		bgStar7 = this.bgstar.create(720, 150, 'skyStar');
 		bgStar7.anchor.setTo(0.5);
 		bgStar7.body.collideWorldBounds = true;
-		bgStar7.body.setSize(70, 1, 0, 40);
+		bgStar7.body.setSize(60, 1, 0, 52);
 		bgStar7.body.immovable = true;
 
 		bgStar8 = this.bgstar.create(880, 150, 'skyStar');
 		bgStar8.anchor.setTo(0.5);
 		bgStar8.body.collideWorldBounds = true;
-		bgStar8.body.setSize(70, 1, 0, 40);
+		bgStar8.body.setSize(60, 1, 0, 52);
 		bgStar8.body.immovable = true;
 
 		bgStar9 = this.bgstar.create(960, 150, 'skyStar');
 		bgStar9.anchor.setTo(0.5);
 		bgStar9.body.collideWorldBounds = true;
-		bgStar9.body.setSize(70, 1, 0, 40);
+		bgStar9.body.setSize(60, 1, 0, 52);
 		bgStar9.body.immovable = true;
 
 		// bg lakestars
@@ -257,4 +257,3 @@ function resetPlay()
 {
 	game.state.start('play');
 }
-
