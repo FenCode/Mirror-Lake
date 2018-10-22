@@ -17,9 +17,8 @@ fishLevel.prototype = {
 		var musics = game.add.audio('twinkle', 0.5, true);
 		//musics.play();
 
-		// adding reset button (function in main)
-		// moved function to play states for now
-		resetButton = game.add.button(64, 32, 'reset', reset, this);
+		// adding reset button 
+		resetButton = game.add.button(64, 32, 'reset', resetFish, this);
     	resetButton.anchor.setTo(0.5);
     	resetButton.scale.setTo(0.3);
 
@@ -174,7 +173,7 @@ fishLevel.prototype = {
 		game.world.bringToTop(rectangle);
 	},
 };
-function reset()
+function resetFish()
 {
 	game.state.start('fishLevel');
 }
