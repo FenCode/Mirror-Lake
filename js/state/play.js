@@ -21,9 +21,8 @@ play.prototype = {
 		var musics = game.add.audio('twinkle', 0.5, true);
 		//musics.play();
 
-		// adding reset button (function in main)
-		// moved to play states for now
-		resetButton = game.add.button(64, 32, 'reset', reset, this);
+		// adding reset button 
+		resetButton = game.add.button(64, 32, 'reset', resetPlay, this);
    		resetButton.anchor.setTo(0.5);
    		resetButton.scale.setTo(0.3);
 
@@ -137,7 +136,6 @@ play.prototype = {
 		game.physics.arcade.collide(player, overlapStar2);
 
 
-
 		if(checkOverlap(skystar, overlapStar))
 		{
 			overlap(skystar, lakestar, overlapStar);
@@ -180,7 +178,7 @@ function destroySprite(sprite)
 	sprite.destroy();
 }
 
-function reset()
+function resetPlay()
 {
 	game.state.start('play');
 }
