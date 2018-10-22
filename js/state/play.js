@@ -54,7 +54,7 @@ play.prototype = {
 		lakestar2.anchor.setTo(0.5);
 
 		// add goal
-		goal = new Goal(game, 960, 120, 1, 1);
+		goal = new Goal(game, 960, 110, 1, 1);
 		game.add.existing(goal);
 
 		// adding star prefab to game
@@ -100,64 +100,35 @@ play.prototype = {
 		overlapStar2.enableBody = true;
 
 
+		// setbgStarProperties function in play.js
 		bgStar = this.bgstar.create(80, 150, 'skyStar');
-		bgStar.anchor.setTo(0.5);
-		//add hitbox to sprite
-		bgStar.body.collideWorldBounds = true;
-		bgStar.body.setSize(70, 1, 0, 40);
-		bgStar.body.immovable = true;
-
+		setbgStarProperties(bgStar);
 
 		bgStar2 = this.bgstar.create(240, 150, 'skyStar');
-		bgStar2.anchor.setTo(0.5);
-		bgStar2.body.collideWorldBounds = true;
-		bgStar2.body.setSize(70, 1, 0, 40);
-		bgStar2.body.immovable = true;
+		setbgStarProperties(bgStar2);
 
 		bgStar3 = this.bgstar.create(400, 150, 'skyStar');
-		bgStar3.anchor.setTo(0.5);
-		bgStar3.body.collideWorldBounds = true;
-		bgStar3.body.setSize(70, 1, 0, 40);
-		bgStar3.body.immovable = true;
+		setbgStarProperties(bgStar3);
 
 		bgStar4 = this.bgstar.create(480, 150, 'skyStar');
-		bgStar4.anchor.setTo(0.5);
-		bgStar4.body.collideWorldBounds = true;
-		bgStar4.body.setSize(70, 1, 0, 40);
-		bgStar4.body.immovable = true;
+		setbgStarProperties(bgStar4);
 
 		bgStar5 = this.bgstar.create(560, 150, 'skyStar');
-		bgStar5.anchor.setTo(0.5);
-		bgStar5.body.collideWorldBounds = true;
-		bgStar5.body.setSize(70, 1, 0, 40);
-		bgStar5.body.immovable = true;
+		setbgStarProperties(bgStar5);
 
 		bgStar6 = this.bgstar.create(640, 150, 'skyStar');
-		bgStar6.anchor.setTo(0.5);
-		bgStar6.body.collideWorldBounds = true;
-		bgStar6.body.setSize(70, 1, 0, 40);
-		bgStar6.body.immovable = true;
+		setbgStarProperties(bgStar6);
 
 		bgStar7 = this.bgstar.create(720, 150, 'skyStar');
-		bgStar7.anchor.setTo(0.5);
-		bgStar7.body.collideWorldBounds = true;
-		bgStar7.body.setSize(70, 1, 0, 40);
-		bgStar7.body.immovable = true;
+		setbgStarProperties(bgStar7);
 
 		bgStar8 = this.bgstar.create(880, 150, 'skyStar');
-		bgStar8.anchor.setTo(0.5);
-		bgStar8.body.collideWorldBounds = true;
-		bgStar8.body.setSize(70, 1, 0, 40);
-		bgStar8.body.immovable = true;
+		setbgStarProperties(bgStar8);
 
 		bgStar9 = this.bgstar.create(960, 150, 'skyStar');
-		bgStar9.anchor.setTo(0.5);
-		bgStar9.body.collideWorldBounds = true;
-		bgStar9.body.setSize(70, 1, 0, 40);
-		bgStar9.body.immovable = true;
+		setbgStarProperties(bgStar9);
 
 		// bg lakestars
-
 		this.bglakestar = game.add.group();
 		bglakeStar = this.bglakestar.create(80, 450, 'lakeStar');
 		bglakeStar.anchor.setTo(0.5);
@@ -229,6 +200,10 @@ play.prototype = {
 		game.world.bringToTop(rectangle);
 	},
 };
+function resetPlay()
+{
+	game.state.start('play');
+}
 
 // checks to see if things overlap
 function checkOverlap(star1, star2)
@@ -253,8 +228,11 @@ function destroySprite(sprite)
 	sprite.destroy();
 }
 
-function resetPlay()
+function setbgStarProperties(bgStar)
 {
-	game.state.start('play');
+	bgStar.anchor.setTo(0.5);
+	//add hitbox to sprite
+	bgStar.body.collideWorldBounds = true;
+	bgStar.body.setSize(70, 1, 0, 40);
+	bgStar.body.immovable = true;
 }
-
