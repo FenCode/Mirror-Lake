@@ -7,8 +7,8 @@ function Fisher(game, key, frame, scale, rotation) {
 	this.enableBody = true;
 
 	game.physics.enable(this, Phaser.Physics.ARCADE);
-	
-	
+
+
 
 }
 // explicitly define prefab's prototype (Phaser.Sprite) and constructor (Player)
@@ -21,7 +21,7 @@ Fisher.prototype.update = function() {
 	//function to change the value of fmove for character movement switching
 	if(this.game.input.keyboard.justPressed(Phaser.Keyboard.SPACEBAR)){
 			move();
-			console.log('spacebar');
+			//console.log('spacebar');
 	}
 
 	if(fmove == 1){
@@ -39,12 +39,12 @@ Fisher.prototype.update = function() {
 
 // changes fmove value to 1 or 0 yadida
 function move(){
-	console.log('fucking move function')
+	//console.log('fucking move function')
 	if(fmove == 1){
-		console.log('fmove false');
+		//console.log('fmove false');
 		fmove = 0;
 	}else{
 		fmove = 1;
-		console.log('fmove true');
+		//console.log('fmove true');
 	}
 }
