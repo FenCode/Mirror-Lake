@@ -20,7 +20,7 @@ fishLevel.prototype = {
 		var musics = game.add.audio('twinkle', 0.5, true);
 		//musics.play();
 
-		// adding reset button 
+		// adding reset button
 		resetButton = game.add.button(64, 32, 'reset', resetFish, this);
     	resetButton.anchor.setTo(0.5);
     	resetButton.scale.setTo(0.3);
@@ -89,7 +89,6 @@ fishLevel.prototype = {
 		this.bgstar = game.add.group();
 		this.game.physics.enable(this.bgstar, Phaser.Physics.ARCADE);
 		this.bgstar.enableBody = true;
-		console.log('abc');
 
 		// bgstar to overlap with skystar
 		overlapStar = this.bgstar.create(200, 210, 'skystar1');
