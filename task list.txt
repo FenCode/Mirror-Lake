@@ -13,3 +13,4 @@ TASKS
 	d. clear instructions on panel
 3. don't let stars move past the middle ground
 4. make a planet platform; islands in the lake, stars can't move past the planets
+5. visual cues for correct star placement
