@@ -6,4 +6,9 @@ TASKS
 	d. reset button//DONE
 	e. instructions (?)//DONE
 2. fish
+	a. fish creates ripple
+	b. ripple pushes movable stars out of place (x + 20 away, every 5 seconds)
+	c. player needs to get rid of fish before placing stars in place
+		- stars won't lock until fish is gone
+	d. clear instructions on panel
 3. black hole
