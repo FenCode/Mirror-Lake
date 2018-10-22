@@ -27,7 +27,7 @@ Load.prototype = {
 		game.load.image('goal', 'goal.png');
 
 		game.load.path = './assets/artwork/';
-		game.load.image('star', 'star.png');
+		game.load.image('skyStar', 'skyStar.png');
 		game.load.image('lakeStar', 'lakeStar.png');
 		game.load.image('starLakebg', 'starLakebg.png');
 
