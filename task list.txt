@@ -1,8 +1,8 @@
 TASKS
 1. bridge
-	a. star hitboxes
+	a. star hitboxes// sorta done
 	b. gravity//DONE
-	c. player switch control
+	c. player switch control // done
 	d. reset button//DONE
 	e. instructions (?)//DONE
 2. fish
@@ -11,4 +11,6 @@ TASKS
 	c. player needs to get rid of fish before placing stars in place
 		- stars won't lock until fish is gone
 	d. clear instructions on panel
-3. black hole
+3. don't let stars move past the middle ground
+4. make a planet platform; islands in the lake, stars can't move past the planets
+5. visual cues for correct star placement
