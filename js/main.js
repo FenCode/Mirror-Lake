@@ -39,7 +39,7 @@ Load.prototype = {
 	},
 	create: function()
 	{
-		game.state.start('play');
+		game.state.start('fishLevel');
 	},
 };
 
