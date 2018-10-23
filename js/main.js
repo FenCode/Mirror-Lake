@@ -18,18 +18,18 @@ Load.prototype = {
 	{
 		// setting load path
 		game.load.path = './assets/placeholders/';
-	  game.load.image('lakestar', 'lakeStar.png');
-		game.load.image('skystar', 'skyStar.png');
+	 //    game.load.image('lakestar', 'lakeStar.png');
+		// game.load.image('skystar', 'skyStar.png');
 		game.load.image('skystar1', 'skyStar1.png');
 		game.load.image('player', 'player.png');
 		game.load.image('reset', 'reset.png');
 		game.load.image('rectangle', 'rectangle.png');
-		game.load.image('goal', 'goal.png');
 
 		game.load.path = './assets/artwork/';
 		game.load.image('skyStar', 'skyStar.png');
 		game.load.image('lakeStar', 'lakeStar.png');
 		game.load.image('starLakebg', 'starLakebg.png');
+		game.load.image('goal', 'moon.png');
 
 		// Sounds
 		// Load all sounds into corresponding array
@@ -42,7 +42,7 @@ Load.prototype = {
 	},
 	create: function()
 	{
-		game.state.start('play');
+		game.state.start('fishLevel');
 	},
 };
 

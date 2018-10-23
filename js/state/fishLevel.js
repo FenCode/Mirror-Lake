@@ -30,12 +30,47 @@ fishLevel.prototype = {
     	rectangle.anchor.setTo(0.5);
     	rectangle.scale.setTo(0.6);
     	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
-    	text = game.add.text(0, 0, 'Avoid the fish!\n\nClick to continue.', style);
+    	text = game.add.text(0, 0, 'Oh no! That stupid fish (the last of its kind)\nis messing with the stars.\nKILL IT!\n\nClick to continue.', style);
     	text.anchor.setTo(0.5);
     	rectangle.addChild(text);
     	// destroy rectangle on click; destroySprite function in play.js
     	rectangle.inputEnabled = true;
     	rectangle.events.onInputDown.add(destroySprite, this);
+
+    	// bg lakestars
+		this.bglakestar = game.add.group();
+		bglakeStar = this.bglakestar.create(80, 500, 'lakeStar');
+		bglakeStar.anchor.setTo(0.5);
+		bglakeStar.scale.setTo(0.5);
+
+		bglakeStar2 = this.bglakestar.create(450, 370, 'lakeStar');
+		bglakeStar2.anchor.setTo(0.5);
+		bglakeStar2.scale.setTo(0.5);
+
+		bglakeStar3 = this.bglakestar.create(300, game.height - 50, 'lakeStar');
+		bglakeStar3.anchor.setTo(0.5);
+		bglakeStar3.scale.setTo(0.5);
+
+		bglakeStar4 = this.bglakestar.create(630, 400, 'lakeStar');
+		bglakeStar4.anchor.setTo(0.5);
+		bglakeStar4.scale.setTo(0.5);
+
+		bglakeStar5 = this.bglakestar.create(700, 420, 'lakeStar');
+		bglakeStar5.anchor.setTo(0.5);
+		bglakeStar5.scale.setTo(0.5);
+
+		bglakeStar6 = this.bglakestar.create(770, 440, 'lakeStar');
+		bglakeStar6.anchor.setTo(0.5);
+		bglakeStar6.scale.setTo(0.5);
+
+		bglakeStar7 = this.bglakestar.create(900, 470, 'lakeStar');
+		bglakeStar7.anchor.setTo(0.5);
+		bglakeStar7.scale.setTo(0.5);
+
+		moon = this.bglakestar.create(1050, 450, 'goal');
+		moon.anchor.setTo(0.5);
+		moon.scale.y*=-1;
+
 
 		// adding star prefab to game
 		lakestar = new lakeStar(game, game.width / 2, game.height / 2 + 100);
@@ -56,7 +91,7 @@ fishLevel.prototype = {
 		lakestar3.anchor.setTo(0.5);
 
 		// add goal
-		goal = new Goal(game, 1000, 300, 1, 1);
+		goal = new Goal(game, 1050, 200, 1, 1);
 		game.add.existing(goal);
 
 		// adding star prefab to game
@@ -109,63 +144,56 @@ fishLevel.prototype = {
 		overlapStar4.anchor.setTo(0.5);
 		overlapStar4.enableBody = true;
 
-		bgStar = this.bgstar.create(80, 150, 'skystar');
+		bgStar = this.bgstar.create(80, 150, 'skyStar');
 		bgStar.anchor.setTo(0.5);
 		//add hitbox to sprite
+		bgStar.scale.setTo(0.7);
 		bgStar.body.collideWorldBounds = true;
 		bgStar.body.setSize(60, 1, 0, 40);
 		bgStar.body.immovable = true;
 
 
-		bgStar2 = this.bgstar.create(450, 280, 'skystar');
+		bgStar2 = this.bgstar.create(450, 280, 'skyStar');
 		bgStar2.anchor.setTo(0.5);
+		bgStar2.scale.setTo(0.7);
 		bgStar2.body.collideWorldBounds = true;
 		bgStar2.body.setSize(60, 1, 0, 40);
 		bgStar2.body.immovable = true;
 
-		bgStar3 = this.bgstar.create(300, 40, 'skystar');
+		bgStar3 = this.bgstar.create(300, 40, 'skyStar');
 		bgStar3.anchor.setTo(0.5);
+		bgStar3.scale.setTo(0.7);
 		bgStar3.body.collideWorldBounds = true;
 		bgStar3.body.setSize(10, 1, 0, 10);
 		bgStar3.body.immovable = true;
 
-		bgStar4 = this.bgstar.create(630, 250, 'skystar');
+		bgStar4 = this.bgstar.create(630, 250, 'skyStar');
 		bgStar4.anchor.setTo(0.5);
+		bgStar4.scale.setTo(0.7);
 		bgStar4.body.collideWorldBounds = true;
 		bgStar4.body.setSize(60, 1, 0, 40);
 		bgStar4.body.immovable = true;
 
-		bgStar5 = this.bgstar.create(700, 230, 'skystar');
+		bgStar5 = this.bgstar.create(700, 230, 'skyStar');
 		bgStar5.anchor.setTo(0.5);
+		bgStar5.scale.setTo(0.7);
 		bgStar5.body.collideWorldBounds = true;
 		bgStar5.body.setSize(60, 1, 0, 40);
 		bgStar5.body.immovable = true;
 
-		bgStar6 = this.bgstar.create(770, 210, 'skystar');
+		bgStar6 = this.bgstar.create(770, 210, 'skyStar');
 		bgStar6.anchor.setTo(0.5);
+		bgStar6.scale.setTo(0.7);
 		bgStar6.body.collideWorldBounds = true;
 		bgStar6.body.setSize(60, 1, 0, 40);
 		bgStar6.body.immovable = true;
 
-		bgStar7 = this.bgstar.create(900, 180, 'skystar');
+		bgStar7 = this.bgstar.create(900, 180, 'skyStar');
 		bgStar7.anchor.setTo(0.5);
+		bgStar7.scale.setTo(0.7);
 		bgStar7.body.collideWorldBounds = true;
 		bgStar7.body.setSize(60, 1, 0, 40);
 		bgStar7.body.immovable = true;
-
-		// bg lakestars
-		this.bglakestar = game.add.group();
-		bglakeStar = this.bglakestar.create(80, 450, 'lakestar');
-		bglakeStar.anchor.setTo(0.5);
-		bglakeStar.scale.setTo(0.1);
-
-		bglakeStar2 = this.bglakestar.create(240, 450, 'lakestar');
-		bglakeStar2.anchor.setTo(0.5);
-		bglakeStar2.scale.setTo(0.1);
-
-		bglakeStar3 = this.bglakestar.create(400, 450, 'lakestar');
-		bglakeStar3.anchor.setTo(0.5);
-		bglakeStar3.scale.setTo(0.1);
 
 		// fish
 
@@ -210,7 +238,7 @@ fishLevel.prototype = {
 		if(checkOverlap(player, goal))
 		{
 			console.log('player collided with goal');
-			game.state.start('fishLevel');
+			end();
 		}
 		// making instruction thing first viewable thing
 		game.world.bringToTop(rectangle);
@@ -219,4 +247,13 @@ fishLevel.prototype = {
 function resetFish()
 {
 	game.state.start('fishLevel');
+}
+function end(){
+	rectangle = game.add.image(game.width / 2, game.height / 2, 'rectangle');
+    rectangle.anchor.setTo(0.5);
+   	rectangle.scale.setTo(0.6);
+   	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
+   	text = game.add.text(0, 0, 'You probably should not have killed that fish...\n\nThe End', style);
+   	text.anchor.setTo(0.5);
+   	rectangle.addChild(text);
 }
