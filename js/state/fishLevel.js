@@ -99,9 +99,6 @@ fishLevel.prototype = {
 		lakeStars.add(lakestar2);
 		lakeStars.add(lakestar3);
 
-		// add timed loop to move lake stars ever 2 seconds
-		game.time.events.loop(2000, moveStars, this, lakeStars);
-
 		// add goal
 		goal = new Goal(game, 1000, 200, 1, 1);
 		game.add.existing(goal);
@@ -123,6 +120,18 @@ fishLevel.prototype = {
 		skystar3 = new skyStar(game, 800, game.height / 2 - 300, lakestar3);
 		game.add.existing(skystar3);
 		skystar3.anchor.setTo(0.5);
+
+		// skyStars to follow movement
+		skyStars = game.add.group();
+
+		skyStars.add(skystar);
+		skyStars.add(skystar1);
+		skyStars.add(skystar2);
+		skyStars.add(skystar3);
+
+
+		// add timed loop to move lake stars ever 2 seconds
+		game.time.events.loop(2000, moveStars, this, lakeStars, skyStars);
 
 		// fisherboy/girl/whatever
 		fisher = new Fisher(game,100,100,1,1);
@@ -242,11 +251,12 @@ function end()
    	rectangle.addChild(text);
 }
 
-function moveStars(lakeStar)
+function moveStars(lakeStar, skyStar)
 {
 	// if fish is in water, move the stars
 	if(!fishGone)
 		lakeStar.x += 20;
+		skyStar.x += 20;
 }
 
 function destroyFish(fish)
