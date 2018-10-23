@@ -242,6 +242,7 @@ fishLevel.prototype = {
 		}
 		// making instruction thing first viewable thing
 		game.world.bringToTop(rectangle);
+		game.world.bringToTop(player);
 	},
 };
 function resetFish()
