@@ -18,12 +18,11 @@ Load.prototype = {
 	{
 		// setting load path
 		game.load.path = './assets/placeholders/';
-	 //    game.load.image('lakestar', 'lakeStar.png');
-		// game.load.image('skystar', 'skyStar.png');
 		game.load.image('skystar1', 'skyStar1.png');
 		game.load.image('player', 'player.png');
 		game.load.image('reset', 'reset.png');
 		game.load.image('rectangle', 'rectangle.png');
+		game.load.image('fish', 'fish.png');
 
 		game.load.path = './assets/artwork/';
 		game.load.image('skyStar', 'skyStar.png');

@@ -4,7 +4,7 @@ var fishLevel = function(game) {
 	var fmove = 0;
 }
 
-
+var fishGone = false;
 fishLevel.prototype = {
 	preload: function() {
 		this.bgstar;
@@ -102,7 +102,7 @@ fishLevel.prototype = {
 		game.time.events.loop(2000, moveStars, this, lakeStars);
 
 		// add goal
-		goal = new Goal(game, 1050, 200, 1, 1);
+		goal = new Goal(game, 1000, 200, 1, 1);
 		game.add.existing(goal);
 
 		// adding star prefab to game
@@ -111,18 +111,17 @@ fishLevel.prototype = {
 		// setting anchor to center
 		skystar.anchor.setTo(0.5);
 
-		skystar2 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar1);
+		skystar1 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar1);
+		game.add.existing(skystar1);
+		skystar1.anchor.setTo(0.5);
+
+		skystar2 = new skyStar(game, game.width - 80, game.height / 2 - 300, lakestar2);
 		game.add.existing(skystar2);
 		skystar2.anchor.setTo(0.5);
 
-		skystar3 = new skyStar(game, game.width - 80, game.height / 2 - 300, lakestar2);
+		skystar3 = new skyStar(game, 800, game.height / 2 - 300, lakestar3);
 		game.add.existing(skystar3);
 		skystar3.anchor.setTo(0.5);
-
-		skystar4 = new skyStar(game, 800, game.height / 2 - 300, lakestar3);
-		game.add.existing(skystar4);
-		skystar4.anchor.setTo(0.5);
-
 
 		// fisherboy/girl/whatever
 		fisher = new Fisher(game,100,100,1,1);
@@ -142,21 +141,20 @@ fishLevel.prototype = {
 		overlapStar.enableBody = true;
 
 		//bg star to overlap with skystar2
-		overlapStar2 = this.bgstar.create(320, 240, 'skystar1');
+		overlapStar1 = this.bgstar.create(320, 240, 'skystar1');
+		overlapStar1.anchor.setTo(0.5);
+		overlapStar1.enableBody = true;
+
+		overlapStar2 = this.bgstar.create(560, 270, 'skystar1');
 		overlapStar2.anchor.setTo(0.5);
 		overlapStar2.enableBody = true;
 
-		overlapStar3 = this.bgstar.create(560, 270, 'skystar1');
+		overlapStar3 = this.bgstar.create(840, 190, 'skystar1');
 		overlapStar3.anchor.setTo(0.5);
 		overlapStar3.enableBody = true;
 
-		overlapStar4 = this.bgstar.create(840, 190, 'skystar1');
-		overlapStar4.anchor.setTo(0.5);
-		overlapStar4.enableBody = true;
-
 		bgStar = this.bgstar.create(80, 150, 'skyStar');
 		setbgStarProperties(bgStar);
-
 
 		bgStar2 = this.bgstar.create(450, 280, 'skyStar');
 		setbgStarProperties(bgStar2);
@@ -177,8 +175,11 @@ fishLevel.prototype = {
 		setbgStarProperties(bgStar7);
 
 		// fish
+		fish = game.add.sprite(180, 400, 'fish');
+		fish.scale.setTo(0.05);
+		fish.inputEnabled = true;
+    	fish.events.onInputDown.add(destroyFish, this);
 
-		// player
 		// player
 		player = new Player(game, 50, 50, 1, 1);
 		game.add.existing(player);
@@ -193,26 +194,26 @@ fishLevel.prototype = {
 		game.physics.arcade.collide(player, bgStar6);
 		game.physics.arcade.collide(player, bgStar7);
 		game.physics.arcade.collide(player, overlapStar);
+		game.physics.arcade.collide(player, overlapStar1);
 		game.physics.arcade.collide(player, overlapStar2);
 		game.physics.arcade.collide(player, overlapStar3);
-		game.physics.arcade.collide(player, overlapStar4);
 
 		if(checkOverlap(skystar, overlapStar))
 		{
 			overlap(skystar, lakestar, overlapStar);
 			//once overlapstar in its designated position enable collision disable drag
 		}
+		if(checkOverlap(skystar1, overlapStar1))
+		{
+			overlap(skystar1, lakestar1, overlapStar1);
+		}
 		if(checkOverlap(skystar2, overlapStar2))
 		{
-			overlap(skystar2, lakestar1, overlapStar2);
+			overlap(skystar2, lakestar2, overlapStar2);
 		}
 		if(checkOverlap(skystar3, overlapStar3))
 		{
-			overlap(skystar3, lakestar2, overlapStar3);
-		}
-		if(checkOverlap(skystar4, overlapStar4))
-		{
-			overlap(skystar4, lakestar3, overlapStar4);
+			overlap(skystar3, lakestar3, overlapStar3);
 		}
 		if(checkOverlap(player, goal))
 		{
@@ -242,5 +243,13 @@ function end()
 
 function moveStars(lakeStar)
 {
-	lakeStar.x += 20;
+	// if fish is in water, move the stars
+	if(!fishGone)
+		lakeStar.x += 20;
+}
+
+function destroyFish(fish)
+{
+	fish.destroy();
+	fishGone = true;
 }
