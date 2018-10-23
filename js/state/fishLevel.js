@@ -225,7 +225,7 @@ fishLevel.prototype = {
 		{
 			overlap(skystar3, lakestar3, overlapStar3);
 		}
-		if(checkOverlap(player, goal))
+		if(checkGoalOverlap(player, goal))
 		{
 			console.log('player collided with goal');
 			end();
