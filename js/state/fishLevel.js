@@ -210,8 +210,8 @@ fishLevel.prototype = {
 
 		if(checkOverlap(skystar, overlapStar) && fishGone)
 		{
-			overlap(skystar, lakestar, overlapStar);
 			//once overlapstar in its designated position enable collision disable drag
+			overlap(skystar, lakestar, overlapStar);
 		}
 		if(checkOverlap(skystar1, overlapStar1) && fishGone)
 		{
@@ -255,8 +255,10 @@ function moveStars(lakeStar, skyStar)
 {
 	// if fish is in water, move the stars
 	if(!fishGone)
+	{
 		lakeStar.x += 20;
 		skyStar.x += 20;
+	}
 }
 
 function destroyFish(fish)

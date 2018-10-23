@@ -204,7 +204,7 @@ play.prototype = {
 		{
 			overlap(skystar2, lakestar2, overlapStar2);
 		}
-		if(checkOverlap(player, goal))
+		if(checkGoalOverlap(player, goal))
 		{
 			console.log('player collided with goal');
 			game.state.start('fishLevel');
@@ -227,7 +227,7 @@ function checkOverlap(star1, star2)
 	}
 }
 
-function checkOverlap(player, goal){
+function checkGoalOverlap(player, goal){
 	if (game.math.difference(player.x, goal.x) < 10 && game.math.difference(player.y, goal.y) < 10){
 		return true;
 	}
