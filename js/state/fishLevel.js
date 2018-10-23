@@ -254,9 +254,10 @@ function end()
 function moveStars(lakeStar, skyStar)
 {
 	// if fish is in water, move the stars
-	if(!fishGone)
+	if(!fishGone){
 		lakeStar.x += 20;
 		skyStar.x += 20;
+	}
 }
 
 function destroyFish(fish)
