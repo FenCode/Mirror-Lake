@@ -31,7 +31,7 @@ play.prototype = {
     	rectangle.anchor.setTo(0.5);
     	rectangle.scale.setTo(0.6);
     	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
-    	text = game.add.text(0, 0, 'Drag the golden stars to move the blue stars in the sky to their correct positions. Then, use WASD to move the sky player to the goal!\n\nClick to continue.', style);
+    	text = game.add.text(0, 0, 'Drag the lake stars to move the sky stars, until the sky stars lock in place. Then, use WASD to move the sky player to the goal!\n\nClick to continue.', style);
     	text.anchor.setTo(0.5);
     	rectangle.addChild(text);
     	// destroy rectangle on click; destroySprite function in play.js
@@ -208,7 +208,7 @@ function resetPlay()
 // checks to see if things overlap
 function checkOverlap(star1, star2)
 {
-	if (game.math.difference(star1.x, star2.x)<1 && game.math.difference(star1.y, star2.y)<1){
+	if (game.math.difference(star1.x, star2.x) < 2 && game.math.difference(star1.y, star2.y) < 2){
 		return true;
 	}
 }
