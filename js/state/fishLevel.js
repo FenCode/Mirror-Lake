@@ -145,55 +145,26 @@ fishLevel.prototype = {
 		overlapStar4.enableBody = true;
 
 		bgStar = this.bgstar.create(80, 150, 'skyStar');
-		bgStar.anchor.setTo(0.5);
-		//add hitbox to sprite
-		bgStar.scale.setTo(0.7);
-		bgStar.body.collideWorldBounds = true;
-		bgStar.body.setSize(60, 1, 0, 40);
-		bgStar.body.immovable = true;
+		setbgStarProperties(bgStar);
 
 
 		bgStar2 = this.bgstar.create(450, 280, 'skyStar');
-		bgStar2.anchor.setTo(0.5);
-		bgStar2.scale.setTo(0.7);
-		bgStar2.body.collideWorldBounds = true;
-		bgStar2.body.setSize(60, 1, 0, 40);
-		bgStar2.body.immovable = true;
+		setbgStarProperties(bgStar2);
 
 		bgStar3 = this.bgstar.create(300, 40, 'skyStar');
-		bgStar3.anchor.setTo(0.5);
-		bgStar3.scale.setTo(0.7);
-		bgStar3.body.collideWorldBounds = true;
-		bgStar3.body.setSize(10, 1, 0, 10);
-		bgStar3.body.immovable = true;
+		setbgStarProperties(bgStar3);
 
 		bgStar4 = this.bgstar.create(630, 250, 'skyStar');
-		bgStar4.anchor.setTo(0.5);
-		bgStar4.scale.setTo(0.7);
-		bgStar4.body.collideWorldBounds = true;
-		bgStar4.body.setSize(60, 1, 0, 40);
-		bgStar4.body.immovable = true;
+		setbgStarProperties(bgStar4);
 
 		bgStar5 = this.bgstar.create(700, 230, 'skyStar');
-		bgStar5.anchor.setTo(0.5);
-		bgStar5.scale.setTo(0.7);
-		bgStar5.body.collideWorldBounds = true;
-		bgStar5.body.setSize(60, 1, 0, 40);
-		bgStar5.body.immovable = true;
+		setbgStarProperties(bgStar5);
 
 		bgStar6 = this.bgstar.create(770, 210, 'skyStar');
-		bgStar6.anchor.setTo(0.5);
-		bgStar6.scale.setTo(0.7);
-		bgStar6.body.collideWorldBounds = true;
-		bgStar6.body.setSize(60, 1, 0, 40);
-		bgStar6.body.immovable = true;
+		setbgStarProperties(bgStar6);
 
 		bgStar7 = this.bgstar.create(900, 180, 'skyStar');
-		bgStar7.anchor.setTo(0.5);
-		bgStar7.scale.setTo(0.7);
-		bgStar7.body.collideWorldBounds = true;
-		bgStar7.body.setSize(60, 1, 0, 40);
-		bgStar7.body.immovable = true;
+		setbgStarProperties(bgStar7);
 
 		// fish
 
@@ -215,8 +186,6 @@ fishLevel.prototype = {
 		game.physics.arcade.collide(player, overlapStar2);
 		game.physics.arcade.collide(player, overlapStar3);
 		game.physics.arcade.collide(player, overlapStar4);
-
-
 
 		if(checkOverlap(skystar, overlapStar))
 		{

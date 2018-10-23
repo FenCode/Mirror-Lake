@@ -47,8 +47,8 @@ Player.prototype.update = function() {
 	if(game.input.keyboard.isDown(Phaser.Keyboard.P)){
 		console.log(this.body.x, this.body.y)
 	}
-	
 
-
-
+	// to go to fish level quickly
+   	if(game.input.keyboard.isDown(Phaser.Keyboard.T))
+		game.state.start('fishLevel');
 }
