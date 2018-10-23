@@ -71,6 +71,8 @@ fishLevel.prototype = {
 		moon.anchor.setTo(0.5);
 		moon.scale.y*=-1;
 
+		// creating lake star group
+		lakeStars = game.add.group();
 
 		// adding star prefab to game
 		lakestar = new lakeStar(game, game.width / 2, game.height / 2 + 100);
@@ -90,6 +92,15 @@ fishLevel.prototype = {
 		game.add.existing(lakestar3);
 		lakestar3.anchor.setTo(0.5);
 
+		// adding lakestars into group
+		lakeStars.add(lakestar);
+		lakeStars.add(lakestar1);
+		lakeStars.add(lakestar2);
+		lakeStars.add(lakestar3);
+
+		// add timed loop to move lake stars ever 2 seconds
+		game.time.events.loop(2000, moveStars, this, lakeStars);
+
 		// add goal
 		goal = new Goal(game, 1050, 200, 1, 1);
 		game.add.existing(goal);
@@ -99,7 +110,6 @@ fishLevel.prototype = {
 		game.add.existing(skystar);
 		// setting anchor to center
 		skystar.anchor.setTo(0.5);
-
 
 		skystar2 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar1);
 		game.add.existing(skystar2);
@@ -218,7 +228,9 @@ function resetFish()
 {
 	game.state.start('fishLevel');
 }
-function end(){
+
+function end()
+{
 	rectangle = game.add.image(game.width / 2, game.height / 2, 'rectangle');
     rectangle.anchor.setTo(0.5);
    	rectangle.scale.setTo(0.6);
@@ -226,4 +238,9 @@ function end(){
    	text = game.add.text(0, 0, 'You probably should not have killed that fish...\n\nThe End', style);
    	text.anchor.setTo(0.5);
    	rectangle.addChild(text);
+}
+
+function moveStars(lakeStar)
+{
+	lakeStar.x += 20;
 }
