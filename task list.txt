@@ -6,11 +6,11 @@ TASKS
 	d. reset button//DONE
 	e. instructions (?)//DONE
 2. fish (grace)
-	a. fish creates ripple
-	b. ripple pushes movable stars out of place (x + 20 away, every 5 seconds)
-	c. player needs to get rid of fish before placing stars in place
+	a. fish creates ripple 
+	b. ripple pushes movable stars out of place (x + 20 away, every 5 seconds) //DONE
+	c. player needs to get rid of fish before placing stars in place //DONE
 		- stars won't lock until fish is gone
-	d. make clear instructions on panel
+	d. make clear instructions on panel //DONE
 
 GENERAL GAME RULES:
 3. don't let stars move past the middle ground (allan)

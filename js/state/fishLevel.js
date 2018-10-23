@@ -30,7 +30,8 @@ fishLevel.prototype = {
     	rectangle.anchor.setTo(0.5);
     	rectangle.scale.setTo(0.6);
     	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
-    	text = game.add.text(0, 0, 'Oh no! That stupid fish (the last of its kind)\nis messing with the stars.\nKILL IT!\n\nClick to continue.', style);
+    	instructionsText = 'Oh no! That stupid fish (the last of its kind) is messing with the stars. Click on it to kill it!\n\nClick to continue.'
+    	text = game.add.text(0, 0, instructionsText, style);
     	text.anchor.setTo(0.5);
     	rectangle.addChild(text);
     	// destroy rectangle on click; destroySprite function in play.js
@@ -198,20 +199,20 @@ fishLevel.prototype = {
 		game.physics.arcade.collide(player, overlapStar2);
 		game.physics.arcade.collide(player, overlapStar3);
 
-		if(checkOverlap(skystar, overlapStar))
+		if(checkOverlap(skystar, overlapStar) && fishGone)
 		{
 			overlap(skystar, lakestar, overlapStar);
 			//once overlapstar in its designated position enable collision disable drag
 		}
-		if(checkOverlap(skystar1, overlapStar1))
+		if(checkOverlap(skystar1, overlapStar1) && fishGone)
 		{
 			overlap(skystar1, lakestar1, overlapStar1);
 		}
-		if(checkOverlap(skystar2, overlapStar2))
+		if(checkOverlap(skystar2, overlapStar2) && fishGone)
 		{
 			overlap(skystar2, lakestar2, overlapStar2);
 		}
-		if(checkOverlap(skystar3, overlapStar3))
+		if(checkOverlap(skystar3, overlapStar3) && fishGone)
 		{
 			overlap(skystar3, lakestar3, overlapStar3);
 		}
