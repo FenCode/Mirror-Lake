@@ -36,6 +36,9 @@ Load.prototype = {
 		game.load.path = './assets/sounds/';
 		// BG
 		game.load.audio('twinkle', 'TwinkleLittleStar.mp3');
+		// sfx from sound-bible.com
+		game.load.audio('magic', 'magic.mp3');
+
 	},
 	create: function()
 	{

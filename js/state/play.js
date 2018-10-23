@@ -221,7 +221,17 @@ function overlap(skystar, lakestar, overlapStar)
 	overlapStar.body.collideWorldBounds = true;
 	overlapStar.body.setSize(70, 1, 0, 10.5);
 	overlapStar.body.immovable = true;
+	
+	// replaces skystar sprite, or will call a new sprite
+	this.rlakestar = game.add.group();
+	let replacementStar = this.rlakestar.create(skystar.x , skystar.y, 'lakeStar');
+	replacementStar.anchor.setTo(0.5);
+
+	//sfx
+	var sfx = game.add.audio('magic', 0.5, false);
 }
+
+
 
 function destroySprite(sprite)
 {
