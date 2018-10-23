@@ -5,16 +5,18 @@ TASKS
 	c. player switch control // done
 	d. reset button//DONE
 	e. instructions (?)//DONE
-2. fish
+2. fish (grace)
 	a. fish creates ripple
 	b. ripple pushes movable stars out of place (x + 20 away, every 5 seconds)
 	c. player needs to get rid of fish before placing stars in place
 		- stars won't lock until fish is gone
 	d. make clear instructions on panel
-3. don't let stars move past the middle ground
+
+GENERAL GAME RULES:
+3. don't let stars move past the middle ground (allan)
 4. (LAST PRIORITY) make a planet platform; islands in the lake, stars can't move past the planets
 	- basically just another movable platform that behaves differently from stars
-5. visual cues for correct star placement
+5. visual cues for correct star placement (sung)
 	- glowing star when not locked in place
 	- not glowing star when locked in
 6. adjust star radius so it's easier to lock stars in //DONE
