@@ -16,6 +16,7 @@ play.prototype = {
 		// add background
 		background = game.add.image(0, 0, 'starLakebg');
 		background.scale.setTo(0.7);
+		//middle blocker
 		bounds = new Phaser.Rectangle(0, game.height/2, game.width, 1320);
 		// bg music
 		var musics = game.add.audio('twinkle', 0.5, true);
@@ -78,7 +79,10 @@ play.prototype = {
 
 		moon = this.bglakestar.create(990, game.height - 60, 'goal');
 		moon.anchor.setTo(0.5);
+		moon.inputEnabled = true;
+		moon.events.onInputDown.add(jump, this)
 		moon.scale.y*=-1;
+		console.log('a');
 
 
 		// adding star prefab to game
@@ -243,7 +247,7 @@ function overlap(skystar, lakestar, overlapStar)
 	overlapStar.body.collideWorldBounds = true;
 	overlapStar.body.setSize(70, 1, 0, 10.5);
 	overlapStar.body.immovable = true;
-	
+
 	// replaces skystar sprite, or will call a new sprite
 	skystar.alpha = 0;
 	this.rlakestar = game.add.group();
@@ -269,4 +273,8 @@ function setbgStarProperties(bgStar)
 	bgStar.body.collideWorldBounds = true;
 	bgStar.body.setSize(60, 1, 0, 52);
 	bgStar.body.immovable = true;
+}
+
+function jump () {
+	game.state.start('fishLevel');
 }
