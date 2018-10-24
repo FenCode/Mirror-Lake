@@ -210,8 +210,8 @@ fishLevel.prototype = {
 
 		if(checkOverlap(skystar, overlapStar) && fishGone)
 		{
-			overlap(skystar, lakestar, overlapStar);
 			//once overlapstar in its designated position enable collision disable drag
+			overlap(skystar, lakestar, overlapStar);
 		}
 		if(checkOverlap(skystar1, overlapStar1) && fishGone)
 		{
@@ -225,7 +225,7 @@ fishLevel.prototype = {
 		{
 			overlap(skystar3, lakestar3, overlapStar3);
 		}
-		if(checkOverlap(player, goal))
+		if(checkGoalOverlap(player, goal))
 		{
 			console.log('player collided with goal');
 			end();

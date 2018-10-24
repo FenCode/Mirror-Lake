@@ -16,7 +16,7 @@ play.prototype = {
 		// add background
 		background = game.add.image(0, 0, 'starLakebg');
 		background.scale.setTo(0.7);
-
+		bounds = new Phaser.Rectangle(0, game.height/2, game.width, 1320);
 		// bg music
 		var musics = game.add.audio('twinkle', 0.5, true);
 		//musics.play();
@@ -174,6 +174,7 @@ play.prototype = {
 		// player
 		player = new Player(game, 50, 50, 1, 1);
 		game.add.existing(player);
+
 	},
 	update: function() {
 		//collision between player and skystars
@@ -191,6 +192,7 @@ play.prototype = {
 		game.physics.arcade.collide(player, overlapStar2);
 
 
+
 		if(checkOverlap(skystar, overlapStar))
 		{
 			overlap(skystar, lakestar, overlapStar);
@@ -204,7 +206,7 @@ play.prototype = {
 		{
 			overlap(skystar2, lakestar2, overlapStar2);
 		}
-		if(checkOverlap(player, goal))
+		if(checkGoalOverlap(player, goal))
 		{
 			console.log('player collided with goal');
 			game.state.start('fishLevel');
@@ -227,7 +229,7 @@ function checkOverlap(star1, star2)
 	}
 }
 
-function checkOverlap(player, goal){
+function checkGoalOverlap(player, goal){
 	if (game.math.difference(player.x, goal.x) < 10 && game.math.difference(player.y, goal.y) < 10){
 		return true;
 	}
