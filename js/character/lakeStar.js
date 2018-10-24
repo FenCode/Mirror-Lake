@@ -7,8 +7,11 @@ function lakeStar(game, xpos, ypos) {
 
 	// adding drag properties
 	this.inputEnabled = true;
+	game.time.events.loop(Phaser.Timer.SECOND*1, delayDrag, this);
+	this.input.boundsRect = bounds;
+	this.game.physics.enable(this, Phaser.Physics.ARCADE);
+	this.enableBody = true;
 
-	game.time.events.loop(Phaser.Timer.SECOND*2, delayDrag, this);
 }
 
 function delayDrag() {

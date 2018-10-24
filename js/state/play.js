@@ -16,7 +16,7 @@ play.prototype = {
 		// add background
 		background = game.add.image(0, 0, 'starLakebg');
 		background.scale.setTo(0.7);
-
+		bounds = new Phaser.Rectangle(0, game.height/2, game.width, 1320);
 		// bg music
 		var musics = game.add.audio('twinkle', 0.5, true);
 		//musics.play();
@@ -161,6 +161,7 @@ play.prototype = {
 		// player
 		player = new Player(game, 50, 50, 1, 1);
 		game.add.existing(player);
+
 	},
 	update: function() {
 		//collision between player and skystars
@@ -176,6 +177,7 @@ play.prototype = {
 		game.physics.arcade.collide(player, overlapStar);
 		game.physics.arcade.collide(player, overlapStar1);
 		game.physics.arcade.collide(player, overlapStar2);
+
 
 
 		if(checkOverlap(skystar, overlapStar))
