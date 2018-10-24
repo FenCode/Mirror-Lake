@@ -7,7 +7,6 @@ function skyStar(game, xpos, ypos, lakestarID) {
 	Phaser.Sprite.call(this, game, xpos, ypos, 'skyStar');
 	this.enableBody = true;
 
-
 	// for scope reasons
 	this.thislakestarID = lakestarID;
 }

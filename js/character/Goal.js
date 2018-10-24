@@ -4,7 +4,6 @@ function Goal(game, xpos, ypos, scale, rotation) {
 	//Phaser.Sprite.call(this, game, 430, 130, 'goal', '', 1);
 	Phaser.Sprite.call(this, game, xpos, ypos, 'goal');
 	this.anchor.setTo(0.5);
-	this.scale.setTo(0.1);
 	this.enableBody = true;
 
 	game.physics.enable(this, Phaser.Physics.ARCADE);

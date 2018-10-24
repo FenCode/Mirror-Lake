@@ -31,12 +31,55 @@ play.prototype = {
     	rectangle.anchor.setTo(0.5);
     	rectangle.scale.setTo(0.6);
     	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
-    	text = game.add.text(0, 0, 'Drag the lake stars to move the sky stars, until the sky stars lock in place. Then, use WASD to move the sky player to the goal!\n\nClick to continue.', style);
+    	text = game.add.text(0, 0, 'Drag the stars in the lake to move the stars in the sky until the sky stars lock in place. Then, use WAD to move the octoalien to the moon!\n\nClick to continue.', style);
     	text.anchor.setTo(0.5);
     	rectangle.addChild(text);
     	// destroy rectangle on click; destroySprite function in play.js
     	rectangle.inputEnabled = true;
     	rectangle.events.onInputDown.add(destroySprite, this);
+
+    	// bg lakestars
+		this.bglakestar = game.add.group();
+		bglakeStar = this.bglakestar.create(80, 450, 'lakeStar');
+		bglakeStar.anchor.setTo(0.5);
+		bglakeStar.scale.setTo(0.5);
+
+		bglakeStar2 = this.bglakestar.create(240, 450, 'lakeStar');
+		bglakeStar2.anchor.setTo(0.5);
+		bglakeStar2.scale.setTo(0.5);
+
+		bglakeStar3 = this.bglakestar.create(400, 450, 'lakeStar');
+		bglakeStar3.anchor.setTo(0.5);
+		bglakeStar3.scale.setTo(0.5);
+
+		bglakeStar4 = this.bglakestar.create(480, 450, 'lakeStar');
+		bglakeStar4.anchor.setTo(0.5);
+		bglakeStar4.scale.setTo(0.5);
+
+		bglakeStar5 = this.bglakestar.create(560, 450, 'lakeStar');
+		bglakeStar5.anchor.setTo(0.5);
+		bglakeStar5.scale.setTo(0.5);
+
+		bglakeStar6 = this.bglakestar.create(640, 450, 'lakeStar');
+		bglakeStar6.anchor.setTo(0.5);
+		bglakeStar6.scale.setTo(0.5);
+
+		bglakeStar7 = this.bglakestar.create(720, 450, 'lakeStar');
+		bglakeStar7.anchor.setTo(0.5);
+		bglakeStar7.scale.setTo(0.5);
+
+		bglakeStar8 = this.bglakestar.create(880, 450, 'lakeStar');
+		bglakeStar8.anchor.setTo(0.5);
+		bglakeStar8.scale.setTo(0.5);
+
+		bglakeStar9 = this.bglakestar.create(960, 450, 'lakeStar');
+		bglakeStar9.anchor.setTo(0.5);
+		bglakeStar9.scale.setTo(0.5);
+
+		moon = this.bglakestar.create(990, game.height - 90, 'goal');
+		moon.anchor.setTo(0.5);
+		moon.scale.y*=-1;
+
 
 		// adding star prefab to game
 		lakestar = new lakeStar(game, 300, game.height / 2 + 100);
@@ -54,7 +97,7 @@ play.prototype = {
 		lakestar2.anchor.setTo(0.5);
 
 		// add goal
-		goal = new Goal(game, 960, 110, 1, 1);
+		goal = new Goal(game, 990, 90, 1, 1);
 		game.add.existing(goal);
 
 		// adding star prefab to game
@@ -128,36 +171,6 @@ play.prototype = {
 		bgStar9 = this.bgstar.create(960, 150, 'skyStar');
 		setbgStarProperties(bgStar9);
 
-		// bg lakestars
-		this.bglakestar = game.add.group();
-		bglakeStar = this.bglakestar.create(80, 450, 'lakeStar');
-		bglakeStar.anchor.setTo(0.5);
-		bglakeStar.scale.setTo(0.5);
-
-		bglakeStar2 = this.bglakestar.create(240, 450, 'lakeStar');
-		bglakeStar2.anchor.setTo(0.5);
-		bglakeStar2.scale.setTo(0.5);
-
-		bglakeStar3 = this.bglakestar.create(400, 450, 'lakeStar');
-		bglakeStar3.anchor.setTo(0.5);
-		bglakeStar3.scale.setTo(0.5);
-
-		bglakeStar4 = this.bglakestar.create(480, 450, 'lakeStar');
-		bglakeStar4.anchor.setTo(0.5);
-		bglakeStar4.scale.setTo(0.5);
-
-		bglakeStar5 = this.bglakestar.create(560, 450, 'lakeStar');
-		bglakeStar5.anchor.setTo(0.5);
-		bglakeStar5.scale.setTo(0.5);
-
-		bglakeStar6 = this.bglakestar.create(640, 450, 'lakeStar');
-		bglakeStar6.anchor.setTo(0.5);
-		bglakeStar6.scale.setTo(0.5);
-
-		bglakeStar7 = this.bglakestar.create(720, 450, 'lakeStar');
-		bglakeStar7.anchor.setTo(0.5);
-		bglakeStar7.scale.setTo(0.5);
-
 		// player
 		player = new Player(game, 50, 50, 1, 1);
 		game.add.existing(player);
@@ -193,13 +206,14 @@ play.prototype = {
 		{
 			overlap(skystar2, lakestar2, overlapStar2);
 		}
-		if(checkOverlap(player, goal))
+		if(checkGoalOverlap(player, goal))
 		{
 			console.log('player collided with goal');
 			game.state.start('fishLevel');
 		}
 		// making instruction thing first viewable thing
 		game.world.bringToTop(rectangle);
+		game.world.bringToTop(player);
 	},
 };
 function resetPlay()
@@ -214,6 +228,12 @@ function checkOverlap(star1, star2)
 		return true;
 	}
 }
+
+function checkGoalOverlap(player, goal){
+	if (game.math.difference(player.x, goal.x) < 10 && game.math.difference(player.y, goal.y) < 10){
+		return true;
+	}
+}
 // if correct stars overlap, then snap them in place
 function overlap(skystar, lakestar, overlapStar)
 {
@@ -223,7 +243,18 @@ function overlap(skystar, lakestar, overlapStar)
 	overlapStar.body.collideWorldBounds = true;
 	overlapStar.body.setSize(70, 1, 0, 10.5);
 	overlapStar.body.immovable = true;
+	
+	// replaces skystar sprite, or will call a new sprite
+	skystar.alpha = 0;
+	this.rlakestar = game.add.group();
+	let replacementStar = this.rlakestar.create(skystar.x , skystar.y, 'lakeStar');
+	replacementStar.anchor.setTo(0.5);
+
+	//sfx
+	var sfx = game.add.audio('magic', 0.5, false);
 }
+
+
 
 function destroySprite(sprite)
 {
@@ -233,6 +264,7 @@ function destroySprite(sprite)
 function setbgStarProperties(bgStar)
 {
 	bgStar.anchor.setTo(0.5);
+	bgStar.scale.setTo(0.7);
 	//add hitbox to sprite
 	bgStar.body.collideWorldBounds = true;
 	bgStar.body.setSize(60, 1, 0, 52);
