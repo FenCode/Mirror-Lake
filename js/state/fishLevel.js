@@ -100,24 +100,24 @@ fishLevel.prototype = {
 		lakeStars.add(lakestar3);
 
 		// add goal
-		goal = new Goal(game, 1000, 200, 1, 1);
+		goal = new Goal(game, 1050, 200, 1, 1);
 		game.add.existing(goal);
 
 		// adding star prefab to game
-		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar);
+		skystar = new skyStar(game, game.width / 2, game.height / 2 - 50, lakestar);
 		game.add.existing(skystar);
 		// setting anchor to center
 		skystar.anchor.setTo(0.5);
 
-		skystar1 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar1);
+		skystar1 = new skyStar(game, game.width - 150, game.height / 2 - 60, lakestar1);
 		game.add.existing(skystar1);
 		skystar1.anchor.setTo(0.5);
 
-		skystar2 = new skyStar(game, game.width - 80, game.height / 2 - 300, lakestar2);
+		skystar2 = new skyStar(game, game.width - 80, game.height / 2 - 350, lakestar2);
 		game.add.existing(skystar2);
 		skystar2.anchor.setTo(0.5);
 
-		skystar3 = new skyStar(game, 800, game.height / 2 - 300, lakestar3);
+		skystar3 = new skyStar(game, 800, game.height / 2 - 350, lakestar3);
 		game.add.existing(skystar3);
 		skystar3.anchor.setTo(0.5);
 

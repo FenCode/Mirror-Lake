@@ -40,43 +40,43 @@ play.prototype = {
 
     	// bg lakestars
 		this.bglakestar = game.add.group();
-		bglakeStar = this.bglakestar.create(80, 450, 'lakeStar');
+		bglakeStar = this.bglakestar.create(80, 500, 'lakeStar');
 		bglakeStar.anchor.setTo(0.5);
 		bglakeStar.scale.setTo(0.5);
 
-		bglakeStar2 = this.bglakestar.create(240, 450, 'lakeStar');
+		bglakeStar2 = this.bglakestar.create(240, 500, 'lakeStar');
 		bglakeStar2.anchor.setTo(0.5);
 		bglakeStar2.scale.setTo(0.5);
 
-		bglakeStar3 = this.bglakestar.create(400, 450, 'lakeStar');
+		bglakeStar3 = this.bglakestar.create(400, 500, 'lakeStar');
 		bglakeStar3.anchor.setTo(0.5);
 		bglakeStar3.scale.setTo(0.5);
 
-		bglakeStar4 = this.bglakestar.create(480, 450, 'lakeStar');
+		bglakeStar4 = this.bglakestar.create(480, 500, 'lakeStar');
 		bglakeStar4.anchor.setTo(0.5);
 		bglakeStar4.scale.setTo(0.5);
 
-		bglakeStar5 = this.bglakestar.create(560, 450, 'lakeStar');
+		bglakeStar5 = this.bglakestar.create(560, 500, 'lakeStar');
 		bglakeStar5.anchor.setTo(0.5);
 		bglakeStar5.scale.setTo(0.5);
 
-		bglakeStar6 = this.bglakestar.create(640, 450, 'lakeStar');
+		bglakeStar6 = this.bglakestar.create(640, 500, 'lakeStar');
 		bglakeStar6.anchor.setTo(0.5);
 		bglakeStar6.scale.setTo(0.5);
 
-		bglakeStar7 = this.bglakestar.create(720, 450, 'lakeStar');
+		bglakeStar7 = this.bglakestar.create(720, 500, 'lakeStar');
 		bglakeStar7.anchor.setTo(0.5);
 		bglakeStar7.scale.setTo(0.5);
 
-		bglakeStar8 = this.bglakestar.create(880, 450, 'lakeStar');
+		bglakeStar8 = this.bglakestar.create(880, 500, 'lakeStar');
 		bglakeStar8.anchor.setTo(0.5);
 		bglakeStar8.scale.setTo(0.5);
 
-		bglakeStar9 = this.bglakestar.create(960, 450, 'lakeStar');
+		bglakeStar9 = this.bglakestar.create(960, 500, 'lakeStar');
 		bglakeStar9.anchor.setTo(0.5);
 		bglakeStar9.scale.setTo(0.5);
 
-		moon = this.bglakestar.create(990, game.height - 90, 'goal');
+		moon = this.bglakestar.create(990, game.height - 60, 'goal');
 		moon.anchor.setTo(0.5);
 		moon.scale.y*=-1;
 

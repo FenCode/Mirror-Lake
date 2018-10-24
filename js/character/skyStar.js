@@ -16,7 +16,7 @@ skyStar.prototype.constructor = skyStar;
 
 skyStar.prototype.update = function() {
 	this.x = this.thislakestarID.x;
-	this.y = -(this.thislakestarID.y - 600);
+	this.y = -(this.thislakestarID.y - 650);
 
 	//console.log('this.x pos: ' + this.x);
 	//console.log('this.y pos: ' + this.y)
