@@ -22,16 +22,16 @@ Player.prototype.update = function() {
 
 	if(fmove == 0){
 		if(game.input.keyboard.isDown(Phaser.Keyboard.D)){
-			this.body.velocity.x = 60;
+			this.body.velocity.x = 150;
 		} else if(game.input.keyboard.isDown(Phaser.Keyboard.A)){
-			this.body.velocity.x = -60;
+			this.body.velocity.x = -150;
 		} else{
 			this.body.velocity.x = 0;
 		}
 		// if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
 		// 	// if(this.body.velocity.y == 0){
 		// 	this.body.velocity.y = -80;
-		// 	//}	
+		// 	//}
 		// }else if(game.input.keyboard.isDown(Phaser.Keyboard.S)){
 		// 	this.body.velocity.y = 80;
 		// }else{
@@ -40,9 +40,9 @@ Player.prototype.update = function() {
 		if(game.input.keyboard.isDown(Phaser.Keyboard.W)){
 			if(this.body.velocity.y == 0){
 			this.body.velocity.y = -80;
-			}	
+			}
 		}
-		
+
 	}
 	if(game.input.keyboard.isDown(Phaser.Keyboard.P)){
 		console.log(this.body.x, this.body.y)
