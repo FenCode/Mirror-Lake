@@ -11,6 +11,7 @@ function lakeStar(game, xpos, ypos) {
 	this.input.boundsRect = bounds;
 	this.game.physics.enable(this, Phaser.Physics.ARCADE);
 	this.enableBody = true;
+	this.body.collideWorldBounds = true;
 	this.anchor.setTo(0.5);
 
 }

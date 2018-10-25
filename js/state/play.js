@@ -20,7 +20,7 @@ play.prototype = {
 		bounds = new Phaser.Rectangle(0, game.height/2, game.width, 1320);
 		// bg music
 		var musics = game.add.audio('twinkle', 0.5, true);
-		musics.play();
+		//musics.play();
 
 		// adding reset button
 		resetButton = game.add.button(64, 32, 'reset', resetPlay, this);
@@ -82,7 +82,6 @@ play.prototype = {
 		moon.inputEnabled = true;
 		moon.events.onInputDown.add(jump, this)
 		moon.scale.y*=-1;
-		console.log('a');
 
 		// adding star prefab to game
 		lakestar = new lakeStar(game, 300, game.height / 2 + 100);
@@ -122,6 +121,7 @@ play.prototype = {
 		// bgstar to overlap with skystar
 		overlapStar = this.bgstar.create(160, 150, 'skystar1');
 		overlapStar.anchor.setTo(0.5);
+		overlapStar.scale.setTo(2);
 		//bgStar2.scale.setTo(2);
 		overlapStar.enableBody = true;
 
@@ -236,7 +236,7 @@ function overlap(skystar, lakestar, overlapStar)
 	skystar.y = overlapStar.y;
 	lakestar.input.disableDrag();
 	overlapStar.body.collideWorldBounds = true;
-	overlapStar.body.setSize(70, 1, 0, 10.5);
+	overlapStar.body.setSize(50, 0.0001, 0, 9.5);
 	overlapStar.body.immovable = true;
 
 	// replaces skystar sprite, or will call a new sprite
@@ -252,9 +252,9 @@ function overlap(skystar, lakestar, overlapStar)
 	replacementlakeStar.anchor.setTo(0.5);
 	replacementlakeStar.scale.setTo(0.7);
 	//sfx
-	var sfx = game.add.audio('magic', 0.2, false);
-	sfx.allowMultiple = false;
-	sfx.play();
+	// var sfx = game.add.audio('magic', 0.3, false);
+	// sfx.allowMultiple = false;
+	// sfx.play();
 
 	// changing boolean to true so overlap wont repeat
 	skystar.starLocked = true;
@@ -273,7 +273,7 @@ function setbgStarProperties(bgStar)
 	bgStar.scale.setTo(0.7);
 	//add hitbox to sprite
 	bgStar.body.collideWorldBounds = true;
-	bgStar.body.setSize(60, 1, 0, 52);
+	bgStar.body.setSize(50, 0.0001, 0, 52.5);
 	bgStar.body.immovable = true;
 }
 
