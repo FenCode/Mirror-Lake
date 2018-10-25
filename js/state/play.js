@@ -40,39 +40,39 @@ play.prototype = {
 
     	// bg lakestars
 		this.bglakestar = game.add.group();
-		bglakeStar = this.bglakestar.create(80, 500, 'lakeStar');
+		bglakeStar = this.bglakestar.create(80, 500, 'lakeStar2');
 		bglakeStar.anchor.setTo(0.5);
 		bglakeStar.scale.setTo(0.5);
 
-		bglakeStar2 = this.bglakestar.create(240, 500, 'lakeStar');
+		bglakeStar2 = this.bglakestar.create(240, 500, 'lakeStar2');
 		bglakeStar2.anchor.setTo(0.5);
 		bglakeStar2.scale.setTo(0.5);
 
-		bglakeStar3 = this.bglakestar.create(400, 500, 'lakeStar');
+		bglakeStar3 = this.bglakestar.create(400, 500, 'lakeStar2');
 		bglakeStar3.anchor.setTo(0.5);
 		bglakeStar3.scale.setTo(0.5);
 
-		bglakeStar4 = this.bglakestar.create(480, 500, 'lakeStar');
+		bglakeStar4 = this.bglakestar.create(480, 500, 'lakeStar2');
 		bglakeStar4.anchor.setTo(0.5);
 		bglakeStar4.scale.setTo(0.5);
 
-		bglakeStar5 = this.bglakestar.create(560, 500, 'lakeStar');
+		bglakeStar5 = this.bglakestar.create(560, 500, 'lakeStar2');
 		bglakeStar5.anchor.setTo(0.5);
 		bglakeStar5.scale.setTo(0.5);
 
-		bglakeStar6 = this.bglakestar.create(640, 500, 'lakeStar');
+		bglakeStar6 = this.bglakestar.create(640, 500, 'lakeStar2');
 		bglakeStar6.anchor.setTo(0.5);
 		bglakeStar6.scale.setTo(0.5);
 
-		bglakeStar7 = this.bglakestar.create(720, 500, 'lakeStar');
+		bglakeStar7 = this.bglakestar.create(720, 500, 'lakeStar2');
 		bglakeStar7.anchor.setTo(0.5);
 		bglakeStar7.scale.setTo(0.5);
 
-		bglakeStar8 = this.bglakestar.create(880, 500, 'lakeStar');
+		bglakeStar8 = this.bglakestar.create(880, 500, 'lakeStar2');
 		bglakeStar8.anchor.setTo(0.5);
 		bglakeStar8.scale.setTo(0.5);
 
-		bglakeStar9 = this.bglakestar.create(960, 500, 'lakeStar');
+		bglakeStar9 = this.bglakestar.create(960, 500, 'lakeStar2');
 		bglakeStar9.anchor.setTo(0.5);
 		bglakeStar9.scale.setTo(0.5);
 
@@ -144,31 +144,31 @@ play.prototype = {
 
 
 		// setbgStarProperties function in play.js
-		bgStar = this.bgstar.create(80, 150, 'skyStar');
+		bgStar = this.bgstar.create(80, 150, 'skyStar2');
 		setbgStarProperties(bgStar);
 
-		bgStar2 = this.bgstar.create(240, 150, 'skyStar');
+		bgStar2 = this.bgstar.create(240, 150, 'skyStar2');
 		setbgStarProperties(bgStar2);
 
-		bgStar3 = this.bgstar.create(400, 150, 'skyStar');
+		bgStar3 = this.bgstar.create(400, 150, 'skyStar2');
 		setbgStarProperties(bgStar3);
 
-		bgStar4 = this.bgstar.create(480, 150, 'skyStar');
+		bgStar4 = this.bgstar.create(480, 150, 'skyStar2');
 		setbgStarProperties(bgStar4);
 
-		bgStar5 = this.bgstar.create(560, 150, 'skyStar');
+		bgStar5 = this.bgstar.create(560, 150, 'skyStar2');
 		setbgStarProperties(bgStar5);
 
-		bgStar6 = this.bgstar.create(640, 150, 'skyStar');
+		bgStar6 = this.bgstar.create(640, 150, 'skyStar2');
 		setbgStarProperties(bgStar6);
 
-		bgStar7 = this.bgstar.create(720, 150, 'skyStar');
+		bgStar7 = this.bgstar.create(720, 150, 'skyStar2');
 		setbgStarProperties(bgStar7);
 
-		bgStar8 = this.bgstar.create(880, 150, 'skyStar');
+		bgStar8 = this.bgstar.create(880, 150, 'skyStar2');
 		setbgStarProperties(bgStar8);
 
-		bgStar9 = this.bgstar.create(960, 150, 'skyStar');
+		bgStar9 = this.bgstar.create(960, 150, 'skyStar2');
 		setbgStarProperties(bgStar9);
 
 		// player
@@ -246,12 +246,18 @@ function overlap(skystar, lakestar, overlapStar)
 	
 	// replaces skystar sprite, or will call a new sprite
 	skystar.alpha = 0;
-	this.rlakestar = game.add.group();
-	let replacementStar = this.rlakestar.create(skystar.x , skystar.y, 'lakeStar');
-	replacementStar.anchor.setTo(0.5);
+	this.rskystar = game.add.group();
+	let replacementskyStar = this.rskystar.create(skystar.x , skystar.y, 'skyStar2');
+	replacementskyStar.anchor.setTo(0.5);
 
+	// replaces lakestar sprite
+	lakestar.alpha = 0;
+	this.rlakestar = game.add.group();
+	let replacementlakeStar = this.rlakestar.create(lakestar.x , lakestar.y, 'lakeStar2');
+	replacementlakeStar.anchor.setTo(0.5);
+	replacementlakeStar.scale.setTo(0.7);
 	//sfx
-	var sfx = game.add.audio('magic', 0.5, false);
+	//var sfx = game.add.audio('magic', 0.5, false);
 }
 
 

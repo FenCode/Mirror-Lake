@@ -29,6 +29,8 @@ Load.prototype = {
 		game.load.image('lakeStar', 'lakeStar.png');
 		game.load.image('starLakebg', 'starLakebg.png');
 		game.load.image('goal', 'moon.png');
+		game.load.image('skyStar2', 'skyStar2.png');
+		game.load.image('lakeStar2', 'lakeStar2.png');
 
 		// Sounds
 		// Load all sounds into corresponding array

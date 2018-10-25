@@ -40,31 +40,31 @@ fishLevel.prototype = {
 
     	// bg lakestars
 		this.bglakestar = game.add.group();
-		bglakeStar = this.bglakestar.create(80, 500, 'lakeStar');
+		bglakeStar = this.bglakestar.create(80, 500, 'lakeStar2');
 		bglakeStar.anchor.setTo(0.5);
 		bglakeStar.scale.setTo(0.5);
 
-		bglakeStar2 = this.bglakestar.create(450, 370, 'lakeStar');
+		bglakeStar2 = this.bglakestar.create(450, 370, 'lakeStar2');
 		bglakeStar2.anchor.setTo(0.5);
 		bglakeStar2.scale.setTo(0.5);
 
-		bglakeStar3 = this.bglakestar.create(300, game.height - 50, 'lakeStar');
+		bglakeStar3 = this.bglakestar.create(300, game.height - 50, 'lakeStar2');
 		bglakeStar3.anchor.setTo(0.5);
 		bglakeStar3.scale.setTo(0.5);
 
-		bglakeStar4 = this.bglakestar.create(630, 400, 'lakeStar');
+		bglakeStar4 = this.bglakestar.create(630, 400, 'lakeStar2');
 		bglakeStar4.anchor.setTo(0.5);
 		bglakeStar4.scale.setTo(0.5);
 
-		bglakeStar5 = this.bglakestar.create(700, 420, 'lakeStar');
+		bglakeStar5 = this.bglakestar.create(700, 420, 'lakeStar2');
 		bglakeStar5.anchor.setTo(0.5);
 		bglakeStar5.scale.setTo(0.5);
 
-		bglakeStar6 = this.bglakestar.create(770, 440, 'lakeStar');
+		bglakeStar6 = this.bglakestar.create(770, 440, 'lakeStar2');
 		bglakeStar6.anchor.setTo(0.5);
 		bglakeStar6.scale.setTo(0.5);
 
-		bglakeStar7 = this.bglakestar.create(900, 470, 'lakeStar');
+		bglakeStar7 = this.bglakestar.create(900, 470, 'lakeStar2');
 		bglakeStar7.anchor.setTo(0.5);
 		bglakeStar7.scale.setTo(0.5);
 
@@ -163,25 +163,25 @@ fishLevel.prototype = {
 		overlapStar3.anchor.setTo(0.5);
 		overlapStar3.enableBody = true;
 
-		bgStar = this.bgstar.create(80, 150, 'skyStar');
+		bgStar = this.bgstar.create(80, 150, 'skyStar2');
 		setbgStarProperties(bgStar);
 
-		bgStar2 = this.bgstar.create(450, 280, 'skyStar');
+		bgStar2 = this.bgstar.create(450, 280, 'skyStar2');
 		setbgStarProperties(bgStar2);
 
-		bgStar3 = this.bgstar.create(300, 40, 'skyStar');
+		bgStar3 = this.bgstar.create(300, 40, 'skyStar2');
 		setbgStarProperties(bgStar3);
 
-		bgStar4 = this.bgstar.create(630, 250, 'skyStar');
+		bgStar4 = this.bgstar.create(630, 250, 'skyStar2');
 		setbgStarProperties(bgStar4);
 
-		bgStar5 = this.bgstar.create(700, 230, 'skyStar');
+		bgStar5 = this.bgstar.create(700, 230, 'skyStar2');
 		setbgStarProperties(bgStar5);
 
-		bgStar6 = this.bgstar.create(770, 210, 'skyStar');
+		bgStar6 = this.bgstar.create(770, 210, 'skyStar2');
 		setbgStarProperties(bgStar6);
 
-		bgStar7 = this.bgstar.create(900, 180, 'skyStar');
+		bgStar7 = this.bgstar.create(900, 180, 'skyStar2');
 		setbgStarProperties(bgStar7);
 
 		// fish
