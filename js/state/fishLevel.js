@@ -229,6 +229,7 @@ fishLevel.prototype = {
 function resetFish()
 {
 	game.state.start('fishLevel');
+	fishGone = false;
 	musics.stop();
 }
 
