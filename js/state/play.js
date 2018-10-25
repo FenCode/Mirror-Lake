@@ -20,7 +20,7 @@ play.prototype = {
 		bounds = new Phaser.Rectangle(0, game.height/2, game.width, 1320);
 		// bg music
 		var musics = game.add.audio('twinkle', 0.5, true);
-		//musics.play();
+		musics.play();
 
 		// adding reset button
 		resetButton = game.add.button(64, 32, 'reset', resetPlay, this);
@@ -251,7 +251,10 @@ function overlap(skystar, lakestar, overlapStar)
 	replacementlakeStar.anchor.setTo(0.5);
 	replacementlakeStar.scale.setTo(0.7);
 	//sfx
-	//var sfx = game.add.audio('magic', 0.5, false);
+	// var sfx = game.add.audio('magic', 0.3, false);
+	// sfx.allowMultiple = false;
+	// sfx.play();
+
 }
 
 
@@ -273,5 +276,5 @@ function setbgStarProperties(bgStar)
 
 function jump () {
 	game.state.start('fishLevel');
-	musics.stop();
+	musics.destroy();
 }

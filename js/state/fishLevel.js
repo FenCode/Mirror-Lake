@@ -16,8 +16,6 @@ fishLevel.prototype = {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		// bg music
-		var musics = game.add.audio('twinkle', 0.5, true);
-		//musics.play();
 
 		// adding reset button
 		resetButton = game.add.button(64, 32, 'reset', resetFish, this);
