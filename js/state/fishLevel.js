@@ -11,7 +11,7 @@ fishLevel.prototype = {
 	},
 	create: function() {
 
-		background = game.add.image(0, -120, 'starLakebg');
+		background = game.add.image(0, 0, 'starLakebg');
 
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 

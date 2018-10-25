@@ -14,7 +14,7 @@ play.prototype = {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		// add background
-		background = game.add.image(0, -120, 'starLakebg');
+		background = game.add.image(0, 0, 'starLakebg');
 
 		//middle blocker
 		bounds = new Phaser.Rectangle(0, game.height/2, game.width, 1320);
@@ -252,9 +252,9 @@ function overlap(skystar, lakestar, overlapStar)
 	replacementlakeStar.anchor.setTo(0.5);
 	replacementlakeStar.scale.setTo(0.7);
 	//sfx
-	// var sfx = game.add.audio('magic', 0.3, false);
-	// sfx.allowMultiple = false;
-	// sfx.play();
+	var sfx = game.add.audio('magic', 0.2, false);
+	sfx.allowMultiple = false;
+	sfx.play();
 
 	// changing boolean to true so overlap wont repeat
 	skystar.starLocked = true;
