@@ -11,8 +11,7 @@ fishLevel.prototype = {
 	},
 	create: function() {
 
-		background = game.add.image(0, 0, 'starLakebg');
-		background.scale.setTo(0.7);
+		background = game.add.image(0, -120, 'starLakebg');
 
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -232,6 +231,7 @@ fishLevel.prototype = {
 function resetFish()
 {
 	game.state.start('fishLevel');
+	musics.stop();
 }
 
 function end()

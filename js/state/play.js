@@ -14,8 +14,8 @@ play.prototype = {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		// add background
-		background = game.add.image(0, 0, 'starLakebg');
-		background.scale.setTo(0.7);
+		background = game.add.image(0, -120, 'starLakebg');
+
 		//middle blocker
 		bounds = new Phaser.Rectangle(0, game.height/2, game.width, 1320);
 		// bg music
@@ -273,4 +273,5 @@ function setbgStarProperties(bgStar)
 
 function jump () {
 	game.state.start('fishLevel');
+	musics.stop();
 }
