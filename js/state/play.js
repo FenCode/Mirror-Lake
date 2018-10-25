@@ -187,16 +187,17 @@ play.prototype = {
 
 
 
-		if(checkOverlap(skystar, overlapStar))
+		if(checkOverlap(skystar, overlapStar) && skystar.starLocked == false)
 		{
+			console.log('skystar locked: ' + skystar.starLocked);
 			overlap(skystar, lakestar, overlapStar);
 			//once overlapstar in its designated position enable collision disable drag
 		}
-		if(checkOverlap(skystar1, overlapStar1))
+		if(checkOverlap(skystar1, overlapStar1) && skystar1.starLocked == false)
 		{
 			overlap(skystar1, lakestar1, overlapStar1);
 		}
-		if(checkOverlap(skystar2, overlapStar2))
+		if(checkOverlap(skystar2, overlapStar2) && skystar2.starLocked == false)
 		{
 			overlap(skystar2, lakestar2, overlapStar2);
 		}
@@ -255,6 +256,8 @@ function overlap(skystar, lakestar, overlapStar)
 	// sfx.allowMultiple = false;
 	// sfx.play();
 
+	// changing boolean to true so overlap wont repeat
+	skystar.starLocked = true;
 }
 
 

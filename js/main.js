@@ -1,6 +1,7 @@
+// global variables
+
 var game;
 var fmove = false;
-
 
 // State management
 window.onload = function() {

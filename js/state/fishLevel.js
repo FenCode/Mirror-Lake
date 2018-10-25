@@ -199,20 +199,20 @@ fishLevel.prototype = {
 		game.physics.arcade.collide(player, overlapStar2);
 		game.physics.arcade.collide(player, overlapStar3);
 
-		if(checkOverlap(skystar, overlapStar) && fishGone)
+		if(checkOverlap(skystar, overlapStar) && fishGone && skystar.starLocked == false)
 		{
 			//once overlapstar in its designated position enable collision disable drag
 			overlap(skystar, lakestar, overlapStar);
 		}
-		if(checkOverlap(skystar1, overlapStar1) && fishGone)
+		if(checkOverlap(skystar1, overlapStar1) && fishGone && skystar1.starLocked == false)
 		{
 			overlap(skystar1, lakestar1, overlapStar1);
 		}
-		if(checkOverlap(skystar2, overlapStar2) && fishGone)
+		if(checkOverlap(skystar2, overlapStar2) && fishGone && skystar2.starLocked == false)
 		{
 			overlap(skystar2, lakestar2, overlapStar2);
 		}
-		if(checkOverlap(skystar3, overlapStar3) && fishGone)
+		if(checkOverlap(skystar3, overlapStar3) && fishGone && skystar3.starLocked == false)
 		{
 			overlap(skystar3, lakestar3, overlapStar3);
 		}
