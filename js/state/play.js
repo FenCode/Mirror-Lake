@@ -84,21 +84,15 @@ play.prototype = {
 		moon.scale.y*=-1;
 		console.log('a');
 
-
 		// adding star prefab to game
 		lakestar = new lakeStar(game, 300, game.height / 2 + 100);
 		game.add.existing(lakestar);
-		// setting anchor to center
-		lakestar.anchor.setTo(0.5);
-
 
 		lakestar1 = new lakeStar(game, 600, game.height / 2 + 100);
 		game.add.existing(lakestar1);
-		lakestar1.anchor.setTo(0.5);
 
 		lakestar2 = new lakeStar(game, 800, game.height / 2 + 100);
 		game.add.existing(lakestar2);
-		lakestar2.anchor.setTo(0.5);
 
 		// add goal
 		goal = new Goal(game, 990, 90, 1, 1);
@@ -107,16 +101,12 @@ play.prototype = {
 		// adding star prefab to game
 		skystar = new skyStar(game, game.width / 2, game.height / 2 - 100, lakestar);
 		game.add.existing(skystar);
-		// setting anchor to center
-		skystar.anchor.setTo(0.5);
 
 		skystar1 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar1);
 		game.add.existing(skystar1);
-		skystar1.anchor.setTo(0.5);
 
 		skystar2 = new skyStar(game, game.width - 150, game.height / 2 - 100, lakestar2);
 		game.add.existing(skystar2);
-		skystar2.anchor.setTo(0.5);
 
 		// fisherboy/girl/whatever
 		fisher = new Fisher(game,100,100,1,1);

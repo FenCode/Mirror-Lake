@@ -6,7 +6,7 @@ function skyStar(game, xpos, ypos, lakestarID) {
 	// call to Phaser.Sprite // new Sprite(game, x, y, key, frame)
 	Phaser.Sprite.call(this, game, xpos, ypos, 'skyStar');
 	this.enableBody = true;
-
+	this.anchor.setTo(0.5);
 	// for scope reasons
 	this.thislakestarID = lakestarID;
 }

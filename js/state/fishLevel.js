@@ -78,20 +78,15 @@ fishLevel.prototype = {
 		// adding star prefab to game
 		lakestar = new lakeStar(game, game.width / 2, game.height / 2 + 100);
 		game.add.existing(lakestar);
-		// setting anchor to center
-		lakestar.anchor.setTo(0.5);
 
 		lakestar1 = new lakeStar(game, game.width - 150, game.height / 2 + 100);
 		game.add.existing(lakestar1);
-		lakestar1.anchor.setTo(0.5);
 
 		lakestar2 = new lakeStar(game, 320, game.height / 2 + 150);
 		game.add.existing(lakestar2);
-		lakestar2.anchor.setTo(0.5);
 
 		lakestar3 = new lakeStar(game, 700, game.height / 2 + 150);
 		game.add.existing(lakestar3);
-		lakestar3.anchor.setTo(0.5);
 
 		// adding lakestars into group
 		lakeStars.add(lakestar);
@@ -106,20 +101,15 @@ fishLevel.prototype = {
 		// adding star prefab to game
 		skystar = new skyStar(game, game.width / 2, game.height / 2 - 50, lakestar);
 		game.add.existing(skystar);
-		// setting anchor to center
-		skystar.anchor.setTo(0.5);
 
 		skystar1 = new skyStar(game, game.width - 150, game.height / 2 - 60, lakestar1);
 		game.add.existing(skystar1);
-		skystar1.anchor.setTo(0.5);
 
 		skystar2 = new skyStar(game, game.width - 80, game.height / 2 - 350, lakestar2);
 		game.add.existing(skystar2);
-		skystar2.anchor.setTo(0.5);
 
 		skystar3 = new skyStar(game, 800, game.height / 2 - 350, lakestar3);
 		game.add.existing(skystar3);
-		skystar3.anchor.setTo(0.5);
 
 		// skyStars to follow movement
 		skyStars = game.add.group();
@@ -149,19 +139,23 @@ fishLevel.prototype = {
 		overlapStar.anchor.setTo(0.5);
 		//bgStar2.scale.setTo(2);
 		overlapStar.enableBody = true;
+		overlapStar.body.immovable = true;
 
 		//bg star to overlap with skystar2
 		overlapStar1 = this.bgstar.create(320, 240, 'skystar1');
 		overlapStar1.anchor.setTo(0.5);
 		overlapStar1.enableBody = true;
+		overlapStar1.body.immovable = true;
 
 		overlapStar2 = this.bgstar.create(560, 270, 'skystar1');
 		overlapStar2.anchor.setTo(0.5);
 		overlapStar2.enableBody = true;
+		overlapStar2.body.immovable = true;
 
 		overlapStar3 = this.bgstar.create(840, 190, 'skystar1');
 		overlapStar3.anchor.setTo(0.5);
 		overlapStar3.enableBody = true;
+		overlapStar3.body.immovable = true;
 
 		bgStar = this.bgstar.create(80, 150, 'skyStar2');
 		setbgStarProperties(bgStar);
