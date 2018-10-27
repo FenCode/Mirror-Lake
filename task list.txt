@@ -20,3 +20,6 @@ GENERAL GAME RULES:
 	- glowing star when not locked in place
 	- not glowing star when locked in
 6. adjust star radius so it's easier to lock stars in //DONE
+7. implement UI elements
+8. implement fish animation
+9. FIX WEIRD HITBOX BUG
