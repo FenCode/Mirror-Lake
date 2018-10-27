@@ -16,7 +16,7 @@ fishLevel.prototype = {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		// bg music
-
+		move = 0
 		// adding reset button
 		resetButton = game.add.button(64, 32, 'reset', resetFish, this);
     	resetButton.anchor.setTo(0.5);
@@ -68,6 +68,8 @@ fishLevel.prototype = {
 		moon = this.bglakestar.create(1030, 450, 'goal');
 		moon.anchor.setTo(0.5);
 		moon.scale.y*=-1;
+		moon.inputEnabled = true;
+		moon.events.onInputDown.add(tell, this)
 
 		// creating lake star group
 		lakeStars = game.add.group();
@@ -200,20 +202,20 @@ fishLevel.prototype = {
 		game.physics.arcade.collide(player, overlapStar2);
 		game.physics.arcade.collide(player, overlapStar3);
 
-		if(checkOverlap(skystar, overlapStar) && fishGone && skystar.starLocked == false)
+		if(checkOverlap1(skystar, overlapStar) && fishGone && skystar.starLocked == false)
 		{
 			//once overlapstar in its designated position enable collision disable drag
 			overlap(skystar, lakestar, overlapStar);
 		}
-		if(checkOverlap(skystar1, overlapStar1) && fishGone && skystar1.starLocked == false)
+		if(checkOverlap1(skystar1, overlapStar1) && fishGone && skystar1.starLocked == false)
 		{
 			overlap(skystar1, lakestar1, overlapStar1);
 		}
-		if(checkOverlap(skystar2, overlapStar2) && fishGone && skystar2.starLocked == false)
+		if(checkOverlap1(skystar2, overlapStar2) && fishGone && skystar2.starLocked == false)
 		{
 			overlap(skystar2, lakestar2, overlapStar2);
 		}
-		if(checkOverlap(skystar3, overlapStar3) && fishGone && skystar3.starLocked == false)
+		if(checkOverlap1(skystar3, overlapStar3) && fishGone && skystar3.starLocked == false)
 		{
 			overlap(skystar3, lakestar3, overlapStar3);
 		}
@@ -251,6 +253,7 @@ function moveStars(lakeStar, skyStar)
 	if(!fishGone){
 		lakeStar.x += 20;
 		skyStar.x += 20;
+		move += 20;
 	}
 }
 
@@ -262,19 +265,19 @@ function destroyFish(fish)
 
 function checkOverlap1(star1, star2)
 {
-	if (star2 = overlapStar) {
-		console.log(star1.x+' '+star1.y);
-		console.log(star2.x+' '+star2.y);
-		x = 200, y = 210;
-	} else if (star2 = overlapStar1) {
-		x = 320, y = 240;
-	} else if (star2 = overlapStar2) {
-		x = 560, y = 270;
-	} else if (star2 = overlapStar3) {
-		x = 840, y = 190;
-	}
-	if (game.math.difference(star1.x, x) < 2 && game.math.difference(star1.y, y) < 2){
-		console.log('bbbb');
+	if (game.math.difference(star1.x+move, star2.x) < 3 && game.math.difference(star1.y, star2.y) < 3){
 		return true;
 	}
+}
+
+function tell() {
+	console.log('move'+move);
+	console.log("skystar x"+skystar.x+' '+"y"+skystar.y);
+	console.log("overlapstar x"+overlapStar.x+' '+"y"+overlapStar.y);
+	console.log("skystar1 x"+skystar1.x+' '+"y"+skystar1.y);
+	console.log("overlapstar1 x"+overlapStar1.x+' '+"y"+overlapStar1.y);
+	console.log("skystar2 x"+skystar2.x+' '+"y"+skystar2.y);
+	console.log("overlapstar2 x"+overlapStar2.x+' '+"y"+overlapStar2.y);
+	console.log("skystar3 x"+skystar3.x+' '+"y"+skystar3.y);
+	console.log("overlapstar3 x"+overlapStar3.x+' '+"y"+overlapStar3.y);
 }
