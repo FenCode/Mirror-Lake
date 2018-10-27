@@ -65,7 +65,7 @@ fishLevel.prototype = {
 		bglakeStar7.anchor.setTo(0.5);
 		bglakeStar7.scale.setTo(0.5);
 
-		moon = this.bglakestar.create(1050, 450, 'goal');
+		moon = this.bglakestar.create(1030, 450, 'goal');
 		moon.anchor.setTo(0.5);
 		moon.scale.y*=-1;
 
@@ -92,7 +92,7 @@ fishLevel.prototype = {
 		lakeStars.add(lakestar3);
 
 		// add goal
-		goal = new Goal(game, 1050, 200, 1, 1);
+		goal = new Goal(game, 1030, 200, 1, 1);
 		game.add.existing(goal);
 
 		// adding star prefab to game
