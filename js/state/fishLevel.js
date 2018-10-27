@@ -270,6 +270,7 @@ function checkOverlap1(star1, star2)
 	}
 }
 
+
 function tell() {
 	console.log('move'+move);
 	console.log("skystar x"+skystar.x+' '+"y"+skystar.y);

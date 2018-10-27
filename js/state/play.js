@@ -232,7 +232,7 @@ function checkGoalOverlap(player, goal){
 // if correct stars overlap, then snap them in place
 function overlap(skystar, lakestar, overlapStar)
 {
-	skystar.x = overlapStar.x -move;
+	skystar.x = overlapStar.x;
 	skystar.y = overlapStar.y;
 	lakestar.input.disableDrag();
 	overlapStar.body.collideWorldBounds = true;
