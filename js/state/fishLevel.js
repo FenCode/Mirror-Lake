@@ -185,6 +185,7 @@ fishLevel.prototype = {
 		player = new Player(game, 50, 50, 1, 1);
 		game.add.existing(player);
 
+
 	},
 	update: function() {
 		game.physics.arcade.collide(player, bgStar);
@@ -257,4 +258,23 @@ function destroyFish(fish)
 {
 	fish.destroy();
 	fishGone = true;
+}
+
+function checkOverlap1(star1, star2)
+{
+	if (star2 = overlapStar) {
+		console.log(star1.x+' '+star1.y);
+		console.log(star2.x+' '+star2.y);
+		x = 200, y = 210;
+	} else if (star2 = overlapStar1) {
+		x = 320, y = 240;
+	} else if (star2 = overlapStar2) {
+		x = 560, y = 270;
+	} else if (star2 = overlapStar3) {
+		x = 840, y = 190;
+	}
+	if (game.math.difference(star1.x, x) < 2 && game.math.difference(star1.y, y) < 2){
+		console.log('bbbb');
+		return true;
+	}
 }
