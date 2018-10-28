@@ -18,16 +18,16 @@ fishLevel.prototype = {
 		// bg music
 		move = 0
 		// adding reset button
-		resetButton = game.add.button(64, 32, 'reset', resetFish, this);
+		resetButton = game.add.button(64, 45, 'resetButton', resetFish, this);
     	resetButton.anchor.setTo(0.5);
-    	resetButton.scale.setTo(0.3);
+    	resetButton.scale.setTo(0.2);
 
     	// adding a mini instruction panel
-    	rectangle = game.add.image(game.width / 2, game.height / 2, 'rectangle');
+    	rectangle = game.add.image(game.width / 2, game.height / 2, 'menu');
     	rectangle.anchor.setTo(0.5);
     	rectangle.scale.setTo(0.6);
     	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
-    	instructionsText = 'Oh no! That stupid fish (the last of its kind) is messing with the stars. Click on it to kill it!\n\nClick to continue.'
+    	instructionsText = 'Oh no! That fish is messing with the stars. Click on it to kill it! Remember: the stars all have a specific position they belong in. Get the pattern right!\n\nClick to continue.'
     	text = game.add.text(0, 0, instructionsText, style);
     	text.anchor.setTo(0.5);
     	rectangle.addChild(text);

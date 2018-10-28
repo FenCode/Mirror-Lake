@@ -23,16 +23,16 @@ play.prototype = {
 		//musics.play();
 
 		// adding reset button
-		resetButton = game.add.button(64, 32, 'reset', resetPlay, this);
+		resetButton = game.add.button(64, 45, 'resetButton', resetPlay, this);
    		resetButton.anchor.setTo(0.5);
-   		resetButton.scale.setTo(0.3);
+   		resetButton.scale.setTo(0.2);
 
    		// adding a mini instruction panel
-    	rectangle = game.add.image(game.width / 2, game.height / 2, 'rectangle');
+    	rectangle = game.add.image(game.width / 2, game.height / 2, 'menu');
     	rectangle.anchor.setTo(0.5);
-    	rectangle.scale.setTo(0.6);
+    	rectangle.scale.setTo( 0.6);
     	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
-    	text = game.add.text(0, 0, 'Drag the stars in the lake to move the stars in the sky until the sky stars lock in place. Then, use WAD to move the octoalien to the moon!\n\nClick to continue.', style);
+    	text = game.add.text(0, 0, 'Drag the stars in the lake to rearrange the stars in the sky until they lock in place. Then, use WAD to move the star child to the moon!\n\nClick to continue.', style);
     	text.anchor.setTo(0.5);
     	rectangle.addChild(text);
     	// destroy rectangle on click; destroySprite function in play.js

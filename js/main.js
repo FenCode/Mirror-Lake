@@ -30,8 +30,8 @@ Load.prototype = {
 		game.load.image('starchild', 'starchild.png');
 		game.load.image('fish', 'fish.png');
 		game.load.image('skystar1', 'skyStar1.png');
-		game.load.image('rectangle', 'rectangle.png');
-		game.load.image('reset', 'reset.png');
+		game.load.image('resetButton', 'resetButton.png');
+		game.load.image('menu', 'menu.png');
 
 		// Sounds
 		// Load all sounds into corresponding array
