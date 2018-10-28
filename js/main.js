@@ -33,6 +33,7 @@ Load.prototype = {
 		game.load.image('resetButton', 'resetButton.png');
 		game.load.image('menu', 'menu.png');
 		game.load.atlas('AnimationSpriteSheet', 'AnimationSpriteSheet.png', 'AnimationSpriteSheet.json');
+		game.load.atlas('StarchildRun', 'spritesheet.png', 'sprites.json');
 
 		// Sounds
 		// Load all sounds into corresponding array

@@ -32,4 +32,4 @@ GENERAL GAME RULES:
 8. implement fish animation // DONE
 9. FIX WEIRD HITBOX BUG // DONE
 POLISH: polish? pawlesh?
-10. FIX sprite horizontal flipping thing for player(anyone)
+10. FIX sprite horizontal flipping thing for player(anyone) // DONE
