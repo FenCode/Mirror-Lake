@@ -23,17 +23,17 @@ fishLevel.prototype = {
     	resetButton.scale.setTo(0.2);
 
     	// adding a mini instruction panel
-    	rectangle = game.add.image(game.width / 2, game.height / 2, 'menu');
-    	rectangle.anchor.setTo(0.5);
-    	rectangle.scale.setTo(0.6);
-    	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
+    	menu = game.add.image(game.width / 2, game.height / 2, 'menu');
+    	menu.anchor.setTo(0.5);
+    	menu.scale.setTo(0.6);
+    	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: menu.width, align: 'center'};
     	instructionsText = 'Oh no! That fish is messing with the stars. Click on it to kill it! Remember: the stars all have a specific position they belong in. Get the pattern right!\n\nClick to continue.'
     	text = game.add.text(0, 0, instructionsText, style);
     	text.anchor.setTo(0.5);
-    	rectangle.addChild(text);
-    	// destroy rectangle on click; destroySprite function in play.js
-    	rectangle.inputEnabled = true;
-    	rectangle.events.onInputDown.add(destroySprite, this);
+    	menu.addChild(text);
+    	// destroy menu on click; destroySprite function in play.js
+    	menu.inputEnabled = true;
+    	menu.events.onInputDown.add(destroySprite, this);
 
     	// bg lakestars
 		this.bglakestar = game.add.group();
@@ -182,9 +182,11 @@ fishLevel.prototype = {
 		setbgStarProperties(bgStar7);
 
 		// fish
-		fish = game.add.sprite(180, 400, 'fish');
-		fish.scale.setTo(0.05);
-		fish.inputEnabled = true;
+		fish = game.add.sprite(160, 350, 'fishAnimationSpriteSheet');
+    	fish.animations.add('jump', Phaser.Animation.generateFrameNames('FishJumpAnimation', 1, 11, '', 1), 5, true);
+    	fish.animations.play('jump');
+    	fish.scale.setTo(0.25);
+    	fish.inputEnabled = true;
     	fish.events.onInputDown.add(destroyFish, this);
 
 		// player
@@ -229,7 +231,7 @@ fishLevel.prototype = {
 			end();
 		}
 		// making instruction thing first viewable thing
-		game.world.bringToTop(rectangle);
+		game.world.bringToTop(menu);
 		game.world.bringToTop(player);
 	},
 };
@@ -237,24 +239,26 @@ function resetFish()
 {
 	game.state.start('fishLevel');
 	fishGone = false;
+	menuGone = false;
 	musics.stop();
 }
 
 function end()
 {
-	rectangle = game.add.image(game.width / 2, game.height / 2, 'rectangle');
-    rectangle.anchor.setTo(0.5);
-   	rectangle.scale.setTo(0.6);
-   	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
+	menu = game.add.image(game.width / 2, game.height / 2, 'menu');
+    menu.anchor.setTo(0.5);
+   	menu.scale.setTo(0.6);
+   	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: menu.width, align: 'center'};
    	text = game.add.text(0, 0, 'You probably should not have killed that fish...\n\nThe End', style);
    	text.anchor.setTo(0.5);
-   	rectangle.addChild(text);
+   	menu.addChild(text);
 }
 
 function moveStars(lakeStar, skyStar)
 {
 	// if fish is in water, move the stars
-	if(!fishGone){
+	// don't move stars till menu is gone
+	if(menuGone && !fishGone){
 		lakeStar.x += 20;
 
 		skyStar.x += 20;

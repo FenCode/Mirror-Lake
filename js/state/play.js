@@ -28,16 +28,16 @@ play.prototype = {
    		resetButton.scale.setTo(0.2);
 
    		// adding a mini instruction panel
-    	rectangle = game.add.image(game.width / 2, game.height / 2, 'menu');
-    	rectangle.anchor.setTo(0.5);
-    	rectangle.scale.setTo( 0.6);
-    	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: rectangle.width, align: 'center'};
+    	menu = game.add.image(game.width / 2, game.height / 2, 'menu');
+    	menu.anchor.setTo(0.5);
+    	menu.scale.setTo( 0.6);
+    	style = {font: '32px Arial', fill: '#FFFFFF', wordWrap: true, wordWrapWidth: menu.width, align: 'center'};
     	text = game.add.text(0, 0, 'Drag the stars in the lake to rearrange the stars in the sky until they lock in place. Then, use WAD to move the star child to the moon!\n\nClick to continue.', style);
     	text.anchor.setTo(0.5);
-    	rectangle.addChild(text);
-    	// destroy rectangle on click; destroySprite function in play.js
-    	rectangle.inputEnabled = true;
-    	rectangle.events.onInputDown.add(destroySprite, this);
+    	menu.addChild(text);
+    	// destroy menu on click; destroySprite function in play.js
+    	menu.inputEnabled = true;
+    	menu.events.onInputDown.add(destroySprite, this);
 
     	// bg lakestars
 		this.bglakestar = game.add.group();
@@ -207,7 +207,7 @@ play.prototype = {
 			game.state.start('fishLevel');
 		}
 		// making instruction thing first viewable thing
-		game.world.bringToTop(rectangle);
+		game.world.bringToTop(menu);
 		game.world.bringToTop(player);
 	},
 };
@@ -260,11 +260,10 @@ function overlap(skystar, lakestar, overlapStar)
 	skystar.starLocked = true;
 }
 
-
-
 function destroySprite(sprite)
 {
 	sprite.destroy();
+	menuGone = true; // to move stars in fish level
 }
 
 function setbgStarProperties(bgStar)
