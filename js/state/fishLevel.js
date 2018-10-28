@@ -23,6 +23,7 @@ fishLevel.prototype = {
 		resetButton = game.add.button(64, 45, 'resetButton', resetFish, this);
     	resetButton.anchor.setTo(0.5);
     	resetButton.scale.setTo(0.2);
+    	resetButton.alpha = 0.5;
 
     	// adding a mini instruction panel
     	menu = game.add.image(game.width / 2, game.height / 2, 'menu');
