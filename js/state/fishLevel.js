@@ -2,6 +2,10 @@ var fishLevel = function(game) {
 
 	// Global state variables
 	var fmove = 0;
+	var starpos = 0
+	var starpos1 = 0
+	var starpos2 = 0
+	var starpos3 = 0
 }
 
 var fishGone = false;
@@ -98,15 +102,19 @@ fishLevel.prototype = {
 		// adding star prefab to game
 		skystar = new skyStar(game, game.width / 2, game.height / 2 - 50, lakestar);
 		game.add.existing(skystar);
+		starpos = game.width / 2;
 
 		skystar1 = new skyStar(game, game.width - 150, game.height / 2 - 60, lakestar1);
 		game.add.existing(skystar1);
+		starpos1 = game.width - 150;
 
 		skystar2 = new skyStar(game, game.width - 80, game.height / 2 - 350, lakestar2);
 		game.add.existing(skystar2);
+		starpos2 = game.width - 80;
 
 		skystar3 = new skyStar(game, 800, game.height / 2 - 350, lakestar3);
 		game.add.existing(skystar3);
+		starpos3 = 800;
 
 		// skyStars to follow movement
 		skyStars = game.add.group();
@@ -249,8 +257,7 @@ function moveStars(lakeStar, skyStar)
 	// if fish is in water, move the stars
 	if(!fishGone){
 		lakeStar.x += 20;
-		skyStar.x += 20;
-	}
+	
 }
 
 function destroyFish(fish)
