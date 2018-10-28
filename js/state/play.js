@@ -19,7 +19,7 @@ play.prototype = {
 		//middle blocker
 		bounds = new Phaser.Rectangle(0, game.height/2, game.width, 1320);
 		// bg music
-		var musics = game.add.audio('twinkle', 0.5, true);
+		//var musics = game.add.audio('twinkle', 0.5, true);
 		//musics.play();
 
 		// adding reset button
@@ -95,7 +95,7 @@ play.prototype = {
 		game.add.existing(lakestar2);
 
 		// add goal
-		goal = new Goal(game, 990, 90, 1, 1);
+		goal = new Goal(game, 1000, 100, 1, 1);
 		game.add.existing(goal);
 
 		// adding star prefab to game

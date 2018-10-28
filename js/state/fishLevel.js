@@ -13,6 +13,8 @@ fishLevel.prototype = {
 
 		background = game.add.image(0, 0, 'starLakebg');
 
+		menuGone = false;
+
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		// bg music
@@ -142,24 +144,23 @@ fishLevel.prototype = {
 		overlapStar = this.bgstar.create(200, 210, 'skystar1');
 		overlapStar.anchor.setTo(0.5);
 		//bgStar2.scale.setTo(2);
-		overlapStar.enableBody = true;
-		overlapStar.body.immovable = true;
+		// overlapStar.body.immovable = true;
 
 		//bg star to overlap with skystar2
 		overlapStar1 = this.bgstar.create(320, 240, 'skystar1');
 		overlapStar1.anchor.setTo(0.5);
 		overlapStar1.enableBody = true;
-		overlapStar1.body.immovable = true;
+		// overlapStar1.body.immovable = true;
 
 		overlapStar2 = this.bgstar.create(560, 270, 'skystar1');
 		overlapStar2.anchor.setTo(0.5);
 		overlapStar2.enableBody = true;
-		overlapStar2.body.immovable = true;
+		// overlapStar2.body.immovable = true;
 
 		overlapStar3 = this.bgstar.create(840, 190, 'skystar1');
 		overlapStar3.anchor.setTo(0.5);
 		overlapStar3.enableBody = true;
-		overlapStar3.body.immovable = true;
+		// overlapStar3.body.immovable = true;
 
 		bgStar = this.bgstar.create(80, 150, 'skyStar2');
 		setbgStarProperties(bgStar);
@@ -183,7 +184,7 @@ fishLevel.prototype = {
 		setbgStarProperties(bgStar7);
 
 		// fish
-		fish = game.add.sprite(160, 350, 'fishAnimationSpriteSheet');
+		fish = game.add.sprite(160, 350, 'AnimationSpriteSheet');
     	fish.animations.add('jump', Phaser.Animation.generateFrameNames('FishJumpAnimation', 1, 11, '', 1), 5, true);
     	fish.animations.play('jump');
     	fish.scale.setTo(0.25);
@@ -246,6 +247,7 @@ function resetFish()
 
 function end()
 {
+	player.destroy();
 	menu = game.add.image(game.width / 2, game.height / 2, 'menu');
     menu.anchor.setTo(0.5);
    	menu.scale.setTo(0.6);
@@ -271,6 +273,7 @@ function destroyFish(fish)
 {
 	fish.destroy();
 	fishGone = true;
+	overlapStar.enableBody = true;
 }
 
 function checkOverlap1(star1, star2)
@@ -283,12 +286,17 @@ function checkOverlap1(star1, star2)
 // if correct stars overlap, then snap them in place
 function overlapFish(skystar, lakestar, overlapStar)
 {
+	if(fishGone == true){
+		overlapStar.body.collideWorldBounds = true;
+		overlapStar.body.setSize(50, 0.0001, 0, 9.5);
+		overlapStar.body.immovable = true;
+	}
 	skystar.x = overlapStar.x;
 	skystar.y = overlapStar.y;
 	lakestar.input.disableDrag();
-	overlapStar.body.collideWorldBounds = true;
-	overlapStar.body.setSize(50, 0.0001, 0, 9.5);
-	overlapStar.body.immovable = true;
+	// overlapStar.body.collideWorldBounds = true;
+	// overlapStar.body.setSize(50, 0.0001, 0, 9.5);
+	// overlapStar.body.immovable = true;
 
 	// replaces skystar sprite, or will call a new sprite
 	skystar.alpha = 0;
@@ -309,6 +317,7 @@ function overlapFish(skystar, lakestar, overlapStar)
 
 	// changing boolean to true so overlap wont repeat
 	skystar.starLocked = true;
+	
 }
 
 

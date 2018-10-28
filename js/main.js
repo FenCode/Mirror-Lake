@@ -32,7 +32,7 @@ Load.prototype = {
 		game.load.image('skystar1', 'skyStar1.png');
 		game.load.image('resetButton', 'resetButton.png');
 		game.load.image('menu', 'menu.png');
-		game.load.atlas('fishAnimationSpriteSheet', 'fishAnimationSpriteSheet.png', 'fishAnimationSpriteSheet.json');
+		game.load.atlas('AnimationSpriteSheet', 'AnimationSpriteSheet.png', 'AnimationSpriteSheet.json');
 
 		// Sounds
 		// Load all sounds into corresponding array
