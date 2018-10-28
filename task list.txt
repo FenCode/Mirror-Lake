@@ -1,35 +1,34 @@
 TASKS
-1. bridge
-<<<<<<< HEAD
+1. bridge //DONE
 	a. star hitboxes
 	b. gravity
 	c. player switch control
 	d. reset button
-2. fish
-	a. moveable stars can be pushed away on a timer
-	b. catch fish to make them disappear
+2. fish //DONE
+	a. moveable stars can be pushed away on a timer //DONE
+	b. catch fish to make them disappear //DONE
 3. black hole
-=======
 	a. star hitboxes// sorta done
 	b. gravity//DONE
 	c. player switch control // done
 	d. reset button//DONE
 	e. instructions (?)//DONE
 2. fish (grace)
-	a. fish creates ripple 
+	a. fish creates ripple //DONE
 	b. ripple pushes movable stars out of place (x + 20 away, every 5 seconds) //DONE
 	c. player needs to get rid of fish before placing stars in place //DONE
-		- stars won't lock until fish is gone
+		- stars won't lock until fish is gone //DONE
 	d. make clear instructions on panel //DONE
 
 GENERAL GAME RULES:
-3. don't let stars move past the middle ground (allan)
+3. don't let stars move past the middle ground (allan) //DONE
 4. (LAST PRIORITY) make a planet platform; islands in the lake, stars can't move past the planets
 	- basically just another movable platform that behaves differently from stars
 5. visual cues for correct star placement (sung)//DONE
-	- glowing star when not locked in place
-	- not glowing star when locked in
+	- glowing star when not locked in place //DONE
+	- not glowing star when locked in //DONE
 6. adjust star radius so it's easier to lock stars in //DONE
 7. implement UI elements // DONE
 8. implement fish animation // DONE
 9. FIX WEIRD HITBOX BUG // DONE
+10. FIX sprite horizontal flipping thing for player(anyone)
