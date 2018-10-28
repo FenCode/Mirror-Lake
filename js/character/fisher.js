@@ -1,7 +1,7 @@
 // Player prefab constructor function
 function Fisher(game, key, frame, scale, rotation) {
 	// call to Phaser.Sprite // new Sprite(game, x, y, key, frame)
-	Phaser.Sprite.call(this, game, game.world.width/2, game.world.height /2, 'player', '', 1);
+	Phaser.Sprite.call(this, game, game.world.width/2, game.world.height /2, 'fisherboy', '', 1);
 	this.anchor.setTo(0.5);
 	this.scale.setTo(0.1);
 	this.enableBody = true;

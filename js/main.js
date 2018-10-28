@@ -1,6 +1,8 @@
+// global variables
+
 var game;
 var fmove = false;
-
+var menuGone = false;
 
 // State management
 window.onload = function() {
@@ -17,19 +19,20 @@ Load.prototype = {
 	preload: function()
 	{
 		// setting load path
-		game.load.path = './assets/placeholders/';
-	 //    game.load.image('lakestar', 'lakeStar.png');
-		// game.load.image('skystar', 'skyStar.png');
-		game.load.image('skystar1', 'skyStar1.png');
-		game.load.image('player', 'player.png');
-		game.load.image('reset', 'reset.png');
-		game.load.image('rectangle', 'rectangle.png');
 
 		game.load.path = './assets/artwork/';
 		game.load.image('skyStar', 'skyStar.png');
 		game.load.image('lakeStar', 'lakeStar.png');
 		game.load.image('starLakebg', 'starLakebg.png');
 		game.load.image('goal', 'moon.png');
+		game.load.image('skyStar2', 'skyStar2.png');
+		game.load.image('lakeStar2', 'lakeStar2.png');
+		game.load.image('fisherboy', 'Fisherboy.png');
+		game.load.image('starchild', 'starchild.png');
+		game.load.image('skystar1', 'skyStar1.png');
+		game.load.image('resetButton', 'resetButton.png');
+		game.load.image('menu', 'menu.png');
+		game.load.atlas('fishAnimationSpriteSheet', 'fishAnimationSpriteSheet.png', 'fishAnimationSpriteSheet.json');
 
 		// Sounds
 		// Load all sounds into corresponding array
