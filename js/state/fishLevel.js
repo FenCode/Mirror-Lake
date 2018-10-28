@@ -13,6 +13,8 @@ fishLevel.prototype = {
 
 		background = game.add.image(0, 0, 'starLakebg');
 
+		menuGone = false;
+
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		// bg music
@@ -182,7 +184,7 @@ fishLevel.prototype = {
 		setbgStarProperties(bgStar7);
 
 		// fish
-		fish = game.add.sprite(160, 350, 'fishAnimationSpriteSheet');
+		fish = game.add.sprite(160, 350, 'AnimationSpriteSheet');
     	fish.animations.add('jump', Phaser.Animation.generateFrameNames('FishJumpAnimation', 1, 11, '', 1), 5, true);
     	fish.animations.play('jump');
     	fish.scale.setTo(0.25);
@@ -245,6 +247,7 @@ function resetFish()
 
 function end()
 {
+	player.destroy();
 	menu = game.add.image(game.width / 2, game.height / 2, 'menu');
     menu.anchor.setTo(0.5);
    	menu.scale.setTo(0.6);

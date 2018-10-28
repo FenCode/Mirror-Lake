@@ -94,7 +94,7 @@ play.prototype = {
 		game.add.existing(lakestar2);
 
 		// add goal
-		goal = new Goal(game, 990, 90, 1, 1);
+		goal = new Goal(game, 1000, 100, 1, 1);
 		game.add.existing(goal);
 
 		// adding star prefab to game
