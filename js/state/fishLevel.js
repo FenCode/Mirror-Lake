@@ -2,10 +2,6 @@ var fishLevel = function(game) {
 
 	// Global state variables
 	var fmove = 0;
-	var starpos = 0
-	var starpos1 = 0
-	var starpos2 = 0
-	var starpos3 = 0
 }
 
 var fishGone = false;
@@ -213,19 +209,19 @@ fishLevel.prototype = {
 		if(checkOverlap1(skystar, overlapStar) && fishGone && skystar.starLocked == false)
 		{
 			//once overlapstar in its designated position enable collision disable drag
-			overlap(skystar, lakestar, overlapStar);
+			overlapFish(skystar, lakestar, overlapStar);
 		}
 		if(checkOverlap1(skystar1, overlapStar1) && fishGone && skystar1.starLocked == false)
 		{
-			overlap(skystar1, lakestar1, overlapStar1);
+			overlapFish(skystar1, lakestar1, overlapStar1);
 		}
 		if(checkOverlap1(skystar2, overlapStar2) && fishGone && skystar2.starLocked == false)
 		{
-			overlap(skystar2, lakestar2, overlapStar2);
+			overlapFish(skystar2, lakestar2, overlapStar2);
 		}
 		if(checkOverlap1(skystar3, overlapStar3) && fishGone && skystar3.starLocked == false)
 		{
-			overlap(skystar3, lakestar3, overlapStar3);
+			overlapFish(skystar3, lakestar3, overlapStar3);
 		}
 		if(checkGoalOverlap(player, goal))
 		{
@@ -278,6 +274,38 @@ function checkOverlap1(star1, star2)
 		return true;
 	}
 }
+
+// if correct stars overlap, then snap them in place
+function overlapFish(skystar, lakestar, overlapStar)
+{
+	skystar.x = overlapStar.x;
+	skystar.y = overlapStar.y;
+	lakestar.input.disableDrag();
+	overlapStar.body.collideWorldBounds = true;
+	overlapStar.body.setSize(50, 0.0001, 0, 9.5);
+	overlapStar.body.immovable = true;
+
+	// replaces skystar sprite, or will call a new sprite
+	skystar.alpha = 0;
+	this.rskystar = game.add.group();
+	let replacementskyStar = this.rskystar.create(skystar.x , skystar.y, 'skyStar2');
+	replacementskyStar.anchor.setTo(0.5);
+
+	// replaces lakestar sprite
+	lakestar.alpha = 0;
+	this.rlakestar = game.add.group();
+	let replacementlakeStar = this.rlakestar.create(lakestar.x + move , lakestar.y, 'lakeStar2');
+	replacementlakeStar.anchor.setTo(0.5);
+	replacementlakeStar.scale.setTo(0.7);
+	// sfx
+	var sfx = game.add.audio('magic', 0.3, false);
+	sfx.allowMultiple = false;
+	//sfx.play();
+
+	// changing boolean to true so overlap wont repeat
+	skystar.starLocked = true;
+}
+
 
 
 function tell() {
