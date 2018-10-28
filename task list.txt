@@ -31,4 +31,6 @@ GENERAL GAME RULES:
 7. implement UI elements // DONE
 8. implement fish animation // DONE
 9. FIX WEIRD HITBOX BUG // DONE
-10. FIX sprite horizontal flipping thing for player(anyone)
+POLISH: polish? pawlesh?
+10. FIX sprite horizontal flipping thing for player(anyone) // DONE
+
