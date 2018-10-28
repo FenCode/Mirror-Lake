@@ -19,7 +19,7 @@ play.prototype = {
 		//middle blocker
 		bounds = new Phaser.Rectangle(0, game.height/2, game.width, 1320);
 		// bg music
-		var musics = game.add.audio('twinkle', 0.5, true);
+		//var musics = game.add.audio('twinkle', 0.5, true);
 		//musics.play();
 
 		// adding reset button
